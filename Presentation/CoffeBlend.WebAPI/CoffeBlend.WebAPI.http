@@ -1,0 +1,6 @@
+@CoffeBlend.WebAPI_HostAddress = http://localhost:5101
+
+GET {{CoffeBlend.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

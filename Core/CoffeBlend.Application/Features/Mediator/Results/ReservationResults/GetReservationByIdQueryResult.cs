@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoffeBlend.Domain.Entites
+namespace CoffeBlend.Application.Features.Mediator.Results.ReservationResults
 {
-    public class Reservation
+    public class GetReservationByIdQueryResult
     {
         public int ReservationId { get; set; }
         public string NameSurname { get; set; }

@@ -1,14 +1,14 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoffeBlend.Domain.Entites
+namespace CoffeBlend.Application.Features.Mediator.Commands.ReservationCommands
 {
-    public class Reservation
+    public class CreateReservationCommand : IRequest
     {
-        public int ReservationId { get; set; }
         public string NameSurname { get; set; }
         public DateTime Date { get; set; }
         public string Email { get; set; }

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoffeBlend.Domain.Entites
+namespace CoffeBlend.Application.Features.Mediator.Results.FeatureResults
 {
-    public class Service
+    public class GetFeatureQueryResult
     {
-        public int ServiceId { get; set; }
-        public string Icon { get; set; }
+        public int FeatureId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string Image { get; set; }
     }
 }

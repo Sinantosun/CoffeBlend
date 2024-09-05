@@ -3,6 +3,7 @@ using System;
 using CoffeBlend.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CoffeBlend.Persistance.Migrations
 {
     [DbContext(typeof(CoffeBlendContext))]
-    partial class CoffeBlendContextModelSnapshot : ModelSnapshot
+    [Migration("20240905164220_mig_3")]
+    partial class mig_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,7 +276,7 @@ namespace CoffeBlend.Persistance.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("StatisticId"));
 
-                    b.Property<int>("Amount")
+                    b.Property<int>("Amount1")
                         .HasColumnType("integer");
 
                     b.Property<string>("Icon")

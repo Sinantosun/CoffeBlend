@@ -1,14 +1,15 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoffeBlend.Domain.Entites
+namespace CoffeBlend.Application.Features.Mediator.Commands.ContactInfoCommands
 {
-    public class Service
+   public class UpdateContactInfoCommand : IRequest
     {
-        public int ServiceId { get; set; }
+        public int ContactInfoId { get; set; }
         public string Icon { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

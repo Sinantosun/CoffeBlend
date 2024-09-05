@@ -3,6 +3,7 @@ using System;
 using CoffeBlend.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CoffeBlend.Persistance.Migrations
 {
     [DbContext(typeof(CoffeBlendContext))]
-    partial class CoffeBlendContextModelSnapshot : ModelSnapshot
+    [Migration("20240905154405_mig_1")]
+    partial class mig_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -248,17 +251,14 @@ namespace CoffeBlend.Persistance.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ServiceId"));
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Description")
+                        .HasColumnType("integer");
 
-                    b.Property<string>("Icon")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Icon")
+                        .HasColumnType("integer");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Title")
+                        .HasColumnType("integer");
 
                     b.HasKey("ServiceId");
 
@@ -273,8 +273,9 @@ namespace CoffeBlend.Persistance.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("StatisticId"));
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("integer");
+                    b.Property<string>("Amount")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Icon")
                         .IsRequired()

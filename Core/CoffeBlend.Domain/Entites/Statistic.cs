@@ -10,7 +10,7 @@ namespace CoffeBlend.Domain.Entites
     {
         public int StatisticId { get; set; }
         public string Icon  { get; set; }
-        public string Amount  { get; set; }
+        public int Amount  { get; set; }
         public string Title  { get; set; }
     }
 }

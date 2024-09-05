@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoffeBlend.Domain.Entites
+namespace CoffeBlend.Application.Features.Mediator.Results.ServiceResults
 {
-    public class Service
+    public class GetServiceQueryResult
     {
         public int ServiceId { get; set; }
         public string Icon { get; set; }

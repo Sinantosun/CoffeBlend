@@ -1,7 +1,9 @@
 using CoffeBlend.Application.Features.Mediator.Handlers.AboutHandlers;
 using CoffeBlend.Application.Interfaces.GenericRepository;
+using CoffeBlend.Application.Interfaces.ProductInterfaces;
 using CoffeBlend.Persistance.Context;
 using CoffeBlend.Persistance.Repositories.GenericRepository;
+using CoffeBlend.Persistance.Repositories.ProductRepositories;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -11,6 +13,7 @@ builder.Services.AddMediatR(opts =>
 {
     opts.RegisterServicesFromAssemblyContaining<GetAboutQueryHandler>();
 });
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddDbContext<CoffeBlendContext>(opts =>
 {

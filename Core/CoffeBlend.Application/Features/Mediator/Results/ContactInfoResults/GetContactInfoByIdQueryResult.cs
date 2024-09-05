@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoffeBlend.Domain.Entites
+namespace CoffeBlend.Application.Features.Mediator.Results.ContactInfoResults
 {
-    public class Service
+    public class GetContactInfoByIdQueryResult
     {
-        public int ServiceId { get; set; }
+        public int ContactInfoId { get; set; }
         public string Icon { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

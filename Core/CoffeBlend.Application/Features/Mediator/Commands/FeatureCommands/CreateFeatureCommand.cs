@@ -1,16 +1,16 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoffeBlend.Domain.Entites
+namespace CoffeBlend.Application.Features.Mediator.Commands.FeatureCommands
 {
-    public class Service
+    public class CreateFeatureCommand : IRequest
     {
-        public int ServiceId { get; set; }
-        public string Icon { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string Image { get; set; }
     }
 }

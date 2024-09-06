@@ -1,23 +1,25 @@
-﻿@model List<ResultContactInfoDto>
+﻿@model List<ResultFeatureDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 
+
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">İletişim Bilgileri Alanı</h4>
+            <h4 class="card-title">Öne Çıkan Alanı</h4>
             <p class="card-description">
-              İletişim Bilgileri alanı burada yer almaktadır silme güncelleme ekleme işlemlerini bu sayfa üzerinden gerçekleştirebilirsiniz<br /> <small><strong>Lütfen bu alanda bir adet veri bulundurun aksi durumda tema bütünlüğü bozulmaktadır.</strong></small>
+                Önce Çıkan alanı burada yer almaktadır silme güncelleme ekleme işlemlerini bu sayfa üzerinden gerçekleştirebilirsiniz
             </p>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>İkon</th>
+                            <th>Görsel</th>
                             <th>Başlık</th>
                             <th>Açıklama</th>
+                       
                             <th colspan="2">işlemler</th>
                         </tr>
                     </thead>
@@ -25,11 +27,11 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.Icon</td>
+                                <td><img src="@item.Image" style="width:75px; height:75px" /></td>
                                 <td>@item.Title</td>
                                 <td>@item.Description</td>
-                                <td><button onclick="DeleteContactInfo(@item.ContactInfoId)" class="btn btn-outline-danger btn-sm btn-icon-text"><i class="ti-trash btn-icon-prepend"></i>Sil</button></td>
-                                <td><a href="/Admin/ContactInfo/UpdateContactInfo/@item.ContactInfoId" class="btn btn-outline-success btn-sm  btn-icon-text"><i class="ti-pencil-alt btn-icon-prepend"> Güncelle </i></a></td>
+                                <td><button onclick="DeleteFeature(@item.FeatureId)" class="btn btn-outline-danger btn-sm btn-icon-text"><i class="ti-trash btn-icon-prepend"></i>Sil</button></td>
+                                <td><a href="/Admin/Feature/UpdateFeature/@item.FeatureId" class="btn btn-outline-success btn-sm  btn-icon-text"><i class="ti-pencil-alt btn-icon-prepend"> Güncelle </i></a></td>
                             </tr>
                         }
 
@@ -37,7 +39,7 @@
                     </tbody>
                 </table>
                 <br />
-                <a href="/Admin/ContactInfo/CreateContactInfo" class="btn btn-outline-primary btn-sm  btn-icon-text"> <i class="ti-pencil btn-icon-prepend"></i>Yeni Alan Ekle</a>
+                <a href="/Admin/Feature/CreateFeature" class="btn btn-outline-primary btn-sm  btn-icon-text"> <i class="ti-pencil btn-icon-prepend"></i>Yeni Alan Ekle</a>
             </div>
         </div>
     </div>
@@ -45,10 +47,10 @@
 
 
 <script>
-    function DeleteContactInfo(id) {
+    function DeleteFeature(id) {
         Swal.fire({
             title: "Kayıt Silme Onayı",
-            text: "İletişim bilgisi kaydını silmek istediğinize emin misiniz?",
+            text: "Hakkımızda kaydını silmek istediğinize emin misiniz?",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -57,7 +59,7 @@
             cancelButtonText: "Vazgeç",
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/Admin/ContactInfo/DeleteContactInfo/" + id;
+                window.location.href = "/Admin/Feature/DeleteFeature/" + id;
             }
         });
     }

@@ -1,0 +1,56 @@
+﻿@model ResultMenuByIdDto
+
+@{
+    ViewData["Title"] = "UpdateMenu";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Menü Ekleme ekleme sayfası</h4>
+            <p class="card-description">
+               Menü bilgisini aşağıdaki form üzerinden ekliyebilirsiniz. Lütfen bilgileri eksiksiz olarak doldurun.
+            </p>
+            <form method="post" class="forms-sample">
+                <input type="hidden" asp-for="MenuId">
+                <div class="form-group">
+                    <label for="exampleInputShortTitlte">Kısa Başlık</label>
+                    <input type="text" class="form-control" id="exampleInputShortTitlte" asp-for="ShortTitle" placeholder="Kısa Başlık">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputTitlte">Başlık</label>
+                    <input type="text" class="form-control" id="exampleInputTitlte" asp-for="Title" placeholder="Başlık">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputDescription">Açıklama</label>
+                    <textarea rows="10" class="form-control" id="exampleInputDescription" asp-for="Description" placeholder="Açıklama"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputShortImage1">1. Görsel</label>
+                    <input type="text" class="form-control" id="exampleInputShortTitle" asp-for="Image1" placeholder="Görsel URL">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputShortImage2">2. Görsel</label>
+                    <input type="text" class="form-control" id="exampleInputShortTitle" asp-for="Image2" placeholder="Görsel URL">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputShortImage3">3. Görsel</label>
+                    <input type="text" class="form-control" id="exampleInputShortTitle" asp-for="Image3" placeholder="Görsel URL">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputShortImage4">4. Görsel</label>
+                    <input type="text" class="form-control" id="exampleInputShortTitle" asp-for="Image4" placeholder="Görsel URL">
+                </div>
+              
+
+                <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

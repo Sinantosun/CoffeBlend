@@ -1,19 +1,18 @@
-﻿@model CreateContactInfoDto
+﻿@model ResultContactInfoByIdDto
 @{
-    ViewData["Title"] = "CreateContactInfo";
+    ViewData["Title"] = "UpdateContactInfo";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
-
-
 
 <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Yeni İletişim Bilgisi ekleme sayfası</h4>
+            <h4 class="card-title">Yeni İletişim Bilgisi güncelleme sayfası</h4>
             <p class="card-description">
-                İletişim bilgisini aşağıdaki form üzerinden ekliyebilirsiniz. Lütfen bilgileri eksiksiz olarak doldurun.
+                İletişim bilgisini aşağıdaki form üzerinden güncelleyebilirsiniz. Lütfen bilgileri eksiksiz olarak doldurun.
             </p>
             <form method="post" class="forms-sample">
+                <input type="hidden"  asp-for="ContactInfoId" >
                 <div class="form-group">
                     <label for="exampleInputTitlte">İkon</label>
                     <input type="text" class="form-control" id="exampleInputTitlte" asp-for="Icon" placeholder="İkon">
@@ -32,3 +31,4 @@
         </div>
     </div>
 </div>
+

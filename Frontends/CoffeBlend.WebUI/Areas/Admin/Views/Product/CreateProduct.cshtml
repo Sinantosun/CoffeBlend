@@ -1,0 +1,45 @@
+﻿@model CreateProductDto
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Ürün ekleme sayfası</h4>
+            <p class="card-description">
+                Ürün bilgisini aşağıdaki form üzerinden ekliyebilirsiniz. Lütfen bilgileri eksiksiz olarak doldurun.
+            </p>
+            <form method="post" class="forms-sample">
+                <div class="form-group">
+                    <label for="exampleInputTitlte">Başlık</label>
+                    <input type="text" class="form-control" id="exampleInputTitlte" asp-for="Title" placeholder="Başlık">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputShortDescription">Kısa Açıklama</label>
+                    <textarea rows="10" class="form-control" id="exampleInputShortDescription" asp-for="ShortDescription" placeholder="Kısa Açıklama"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputDescription">Açıklama</label>
+                    <textarea rows="10" class="form-control" id="exampleInputDescription" asp-for="Description" placeholder="Açıklama"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPrice">Fiyat</label>
+                    <input type="text" class="form-control" id="exampleInputPrice" asp-for="Price" placeholder="Fiyat">
+                   
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputShortTitle">Kategori Seçiniz</label>
+                    <select class="form-control" asp-for="CategoryId" asp-items="@ViewBag.CategoryList"></select>
+                </div>
+              
+
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

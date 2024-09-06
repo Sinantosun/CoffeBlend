@@ -1,0 +1,28 @@
+﻿@model CreateGaleryDto
+@{
+    ViewData["Title"] = "CreateGalery";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Öne Çıkan ekleme sayfası</h4>
+            <p class="card-description">
+                Öne Çıkan bilgisini aşağıdaki form üzerinden ekliyebilirsiniz. Lütfen bilgileri eksiksiz olarak doldurun.
+            </p>
+            <form method="post" class="forms-sample">
+                <div class="form-group">
+                    <label for="exampleInputShortTitle">Görsel</label>
+                    <input type="text" class="form-control" id="exampleInputShortTitle" asp-for="ImageURL" placeholder="Görsel URL">
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

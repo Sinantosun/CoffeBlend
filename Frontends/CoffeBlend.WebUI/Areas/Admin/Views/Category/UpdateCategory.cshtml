@@ -1,0 +1,32 @@
+﻿@model ResultCategoryByIdDto
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Kategori ekleme sayfası</h4>
+            <p class="card-description">
+                Kategori bilgisini aşağıdaki form üzerinden ekliyebilirsiniz. Lütfen bilgileri eksiksiz olarak doldurun.
+            </p>
+            <form method="post" class="forms-sample">
+                <input type="hidden" class="form-control" asp-for="CategoryId" >
+                <div class="form-group">
+                    <label for="exampleInputShortName">Kısa başlık</label>
+                    <input type="text" class="form-control" id="exampleInputShortName" asp-for="Name" placeholder="Kategori Adı">
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -47,6 +47,25 @@ namespace CoffeBlend.Persistance.Migrations
                     b.ToTable("Abouts");
                 });
 
+            modelBuilder.Entity("CoffeBlend.Domain.Entites.Cash", b =>
+                {
+                    b.Property<int>("CashId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CashId"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("CashId");
+
+                    b.ToTable("Cashes");
+                });
+
             modelBuilder.Entity("CoffeBlend.Domain.Entites.Category", b =>
                 {
                     b.Property<int>("CategoryId")

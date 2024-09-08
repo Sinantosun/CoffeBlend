@@ -15,15 +15,63 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-
+        
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7245/api/Reservations");
+            var responseMessage = await client.GetAsync("https://localhost:7245/api/Reservations/GetConfirmationReseravtion");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsondata = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultReservationDto>>(jsondata);
+                return View(values);
+            }
+            return View();
+        }
+        public async Task<IActionResult> ApprovedReservation()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7245/api/Reservations/GetApprovedReservation");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsondata = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultApprovedReservationDto>>(jsondata);
+                return View(values);
+            }
+            return View();
+        }
+        public async Task<IActionResult> ApproveReservation(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7245/api/Reservations/ApproveReservation/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                TempData["Status"] = "Rezervasyon Onaylandı";
+                TempData["Icon"] = "success";
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+        public async Task<IActionResult> CancelReservation(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7245/api/Reservations/CancelReservation/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                TempData["Status"] = "Rezervasyon İptal Edildi";
+                TempData["Icon"] = "success";
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+        public async Task<IActionResult> CanceledReservation()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7245/api/Reservations/GetCancelledReservation");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsondata = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultCanceledReservationDto>>(jsondata);
                 return View(values);
             }
             return View();

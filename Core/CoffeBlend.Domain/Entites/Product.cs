@@ -16,6 +16,8 @@ namespace CoffeBlend.Domain.Entites
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-   
+
+        public List<TableDetail> TableDetails { get; set; }
+
     }
 }

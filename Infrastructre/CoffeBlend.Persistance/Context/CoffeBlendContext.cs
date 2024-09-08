@@ -25,5 +25,7 @@ namespace CoffeBlend.Persistance.Context
         public DbSet<Service> Services { get; set; }
         public DbSet<Statistic> Statistics { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Table> Tables { get; set; }
+        public DbSet<TableDetail> TableDetails { get; set; }
     }
 }

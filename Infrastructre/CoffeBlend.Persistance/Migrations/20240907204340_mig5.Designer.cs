@@ -3,6 +3,7 @@ using System;
 using CoffeBlend.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CoffeBlend.Persistance.Migrations
 {
     [DbContext(typeof(CoffeBlendContext))]
-    partial class CoffeBlendContextModelSnapshot : ModelSnapshot
+    [Migration("20240907204340_mig5")]
+    partial class mig5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -214,7 +217,7 @@ namespace CoffeBlend.Persistance.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ReservationId"));
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -289,55 +292,6 @@ namespace CoffeBlend.Persistance.Migrations
                     b.ToTable("Statistics");
                 });
 
-            modelBuilder.Entity("CoffeBlend.Domain.Entites.Table", b =>
-                {
-                    b.Property<int>("TableID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TableID"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("boolean");
-
-                    b.HasKey("TableID");
-
-                    b.ToTable("Tables");
-                });
-
-            modelBuilder.Entity("CoffeBlend.Domain.Entites.TableDetail", b =>
-                {
-                    b.Property<int>("TableDetailID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TableDetailID"));
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("TableID")
-                        .HasColumnType("integer");
-
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("numeric");
-
-                    b.HasKey("TableDetailID");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("TableID");
-
-                    b.ToTable("TableDetails");
-                });
-
             modelBuilder.Entity("CoffeBlend.Domain.Entites.Testimonial", b =>
                 {
                     b.Property<int>("TestimonialID")
@@ -374,38 +328,9 @@ namespace CoffeBlend.Persistance.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("CoffeBlend.Domain.Entites.TableDetail", b =>
-                {
-                    b.HasOne("CoffeBlend.Domain.Entites.Product", "product")
-                        .WithMany("TableDetails")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CoffeBlend.Domain.Entites.Table", "Table")
-                        .WithMany("TableDetails")
-                        .HasForeignKey("TableID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Table");
-
-                    b.Navigation("product");
-                });
-
             modelBuilder.Entity("CoffeBlend.Domain.Entites.Category", b =>
                 {
                     b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("CoffeBlend.Domain.Entites.Product", b =>
-                {
-                    b.Navigation("TableDetails");
-                });
-
-            modelBuilder.Entity("CoffeBlend.Domain.Entites.Table", b =>
-                {
-                    b.Navigation("TableDetails");
                 });
 #pragma warning restore 612, 618
         }

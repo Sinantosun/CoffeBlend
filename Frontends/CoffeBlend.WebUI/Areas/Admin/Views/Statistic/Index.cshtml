@@ -1,0 +1,74 @@
+﻿@model List<ResultStatisticDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">İstatistikler Alanı</h4>
+            <p class="card-description">
+                İstatistikler alanı burada yer almaktadır onaylama iptal etme bekletme güncelleme ekleme işlemlerini bu sayfa üzerinden gerçekleştirebilirsiniz
+            </p>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                     
+                            <th>Ikon</th>
+                            <th>Başlık</th>
+                            <th>Miktar</th>
+                            <th colspan="5" class="text-center">işlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                   
+                            <tr>
+                         
+                                <td>@item.Icon</td>
+                                <td>@item.Title</td>
+                                <td>@item.Amount</td>
+
+                                <td><button onclick="DeleteStatistic(@item.StatisticId)" class="btn btn-sm  btn-danger  btn-rounded btn-icon-text"><i class="ti-trash btn-icon-prepend"> Sil </i></button></td>
+                                <td><a href="/Admin/Statistic/UpdateStatistic/@item.StatisticId" class="btn btn-sm  btn-success   btn-icon-text"><i class="ti-trash btn-icon-prepend"> Güncelle </i></a></td>
+
+
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+                <br />
+                <a href="/Admin/Statistic/CreateStatistic" class="btn btn-outline-primary btn-sm  btn-icon-text"> <i class="ti-pencil btn-icon-prepend"></i>Yeni Alan Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function DeleteStatistic(id) {
+        Swal.fire({
+            title: "Kayıt Silme Onayı",
+            text: "İstatistik kaydı silisin mi?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sil",
+            cancelButtonText: "Vazgeç",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Admin/Statistic/DeleteStatistic/" + id;
+            }
+        });
+    }
+</script>
+

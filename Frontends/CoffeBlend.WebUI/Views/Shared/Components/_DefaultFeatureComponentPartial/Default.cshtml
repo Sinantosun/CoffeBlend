@@ -1,0 +1,24 @@
+﻿@model List<ResultFeatureDto>
+<section class="home-slider owl-carousel">
+    @foreach (var item in Model)
+    {
+        <div class="slider-item" style="background-image: url(@item.Image);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+                    <div class="col-md-8 col-sm-12 text-center ftco-animate">
+                        <span class="subheading">Hoş Geldiniz!</span>
+                        <h1 class="mb-4">@item.Title</h1>
+                        <p class="mb-4 mb-md-5">@item.Description</p>
+                        <p><a href="#" class="btn btn-primary p-3 px-xl-4 py-xl-3">Sipariş Ver</a> <a href="#" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Ürünlerimiz</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+  
+
+   
+</section>

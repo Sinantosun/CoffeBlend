@@ -1,0 +1,43 @@
+﻿@model List<ResultTableDto>
+@{
+    ViewData["Title"] = "TableList";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    string cardCss = "data-icon-card-primary";
+    string iconCss = "mdi mdi-check-all icon-lg";
+}
+
+
+<div class="row">
+   
+    @foreach (var item in Model)
+    {
+        if (!item.Status)
+        {
+            cardCss = "data-icon-card-danger";
+            iconCss = "mdi mdi-coffee icon-lg";
+        }
+        else
+        {
+            cardCss = "data-icon-card-primary";
+            iconCss = "mdi mdi-food-fork-drink icon-lg";
+
+        }
+        <div class="col-md-2 mb-xl-3 mb-3 stretch-card grid-margin grid-margin-md-0">
+            <div class="card @cardCss">
+                <div class="card-body">
+                    <p class="card-title text-white">@item.Name</p>
+                    <div class="row">
+                        <div class="col-8 text-white">
+                            <h4>Masa @(item.Status==true?"Boş":"Dolu")</h4>
+                        </div>
+                        <div class="col-4 ">
+                            <i class="@iconCss"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+  
+
+</div>

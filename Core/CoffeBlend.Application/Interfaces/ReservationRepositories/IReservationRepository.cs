@@ -1,4 +1,5 @@
-﻿using CoffeBlend.Domain.Entites;
+﻿using CoffeBlend.Application.Features.Mediator.Commands.ReservationCommands;
+using CoffeBlend.Domain.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace CoffeBlend.Application.Interfaces.ReservationRepositories
         Task<List<Reservation>> GetApprovedReservationAsync();
         Task<List<Reservation>> GetCanceledReservationAsync();
         Task<List<Reservation>> GetConfirmationReseravtionAsync();
+
+        Task CreateReservationAsync(CreateReservationCommand command);
    
     }
 }

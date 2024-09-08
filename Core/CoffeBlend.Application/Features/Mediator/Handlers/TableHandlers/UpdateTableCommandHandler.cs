@@ -24,6 +24,7 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.TableHandlers
             var value = await _repository.GetByIdAsync(request.TableID);
             value.Name = request.Name;  
             value.Status= request.Status;
+            value.Capacity= request.Capacity;   
             await _repository.UpdateAsync(value);   
         }
     }

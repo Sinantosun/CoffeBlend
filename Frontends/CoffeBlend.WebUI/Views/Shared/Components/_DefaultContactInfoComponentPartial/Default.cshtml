@@ -1,0 +1,25 @@
+﻿@model List<ResultContactInfoDto>
+@foreach (var item in Model)
+{
+    <section class="ftco-intro">
+        <div class="container-wrap">
+            <div class="wrap d-md-flex align-items-xl-end">
+                <div class="info">
+                    <div class="row no-gutters">
+                        <div class="col-md-4 d-flex ftco-animate">
+                            <div class="icon"><span class="@item.Icon"></span></div>
+                            <div class="text">
+                                <h3>@item.Title</h3>
+                                <p>@item.Description</p>
+                            </div>
+                        </div>
+              
+                    </div>
+                </div>
+                @await Component.InvokeAsync("_DefaultBookATableComponentPartial")
+            </div>
+        </div>
+    </section>
+    
+}
+

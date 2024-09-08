@@ -1,0 +1,37 @@
+﻿@model CreateProductPricingDto
+
+@{
+    ViewData["Title"] = "ProductPrice";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Ürüne fiyat ekleme sayfası</h4>
+            <p class="card-description">
+               İlgili ürüne seçtiğiniz özelliğe ait fiyatı bu alandan ekliyebilirsiniz.
+            </p>
+            <form method="post" class="forms-sample">
+                <div class="form-group">
+                    <input type="hidden" value="@ViewBag.Id" class="form-control" id="exampleInputShortTitle" asp-for="ProductId" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputDescription">Fiyatlandırma Seçiniz</label>
+
+                    <select class="form-control" asp-for="PricingId" asp-items="ViewBag.PricingValues"></select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputDescription">Fiyat Bilgisi</label>
+
+                    <input type="text" class="form-control" id="exampleInputShortTitle" asp-for="Amount">
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Ekle</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

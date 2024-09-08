@@ -25,6 +25,7 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.TableHandlers
             {
                 Name = request.Name,
                 Status = true,
+                Capacity = request.Capacity,
             });
 
         }

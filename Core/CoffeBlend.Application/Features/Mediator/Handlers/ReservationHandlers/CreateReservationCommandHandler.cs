@@ -1,5 +1,6 @@
 ﻿using CoffeBlend.Application.Features.Mediator.Commands.ReservationCommands;
 using CoffeBlend.Application.Interfaces.GenericRepository;
+using CoffeBlend.Application.Interfaces.ReservationRepositories;
 using CoffeBlend.Domain.Entites;
 using MediatR;
 using System;
@@ -12,25 +13,16 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ReservationHandlers
 {
     public class CreateReservationCommandHandler : IRequestHandler<CreateReservationCommand>
     {
-        private readonly IRepository<Reservation> _repository;
+        private readonly IReservationRepository _repository;
 
-        public CreateReservationCommandHandler(IRepository<Reservation> repository)
+        public CreateReservationCommandHandler(IReservationRepository repository)
         {
             _repository = repository;
         }
 
         public async Task Handle(CreateReservationCommand request, CancellationToken cancellationToken)
         {
-            await _repository.CreateAsync(new Reservation
-            {
-                Date = request.Date,
-                Email = request.Email,
-                NameSurname = request.NameSurname,
-                Phone = request.Phone,
-                SpecialRequest = request.SpecialRequest,
-                Status = "Rezervasyon Alındı, Onay Bekliyor",
-
-            });
+            await _repository.CreateReservationAsync(request);
         }
     }
 }

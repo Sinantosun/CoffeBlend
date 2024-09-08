@@ -23,6 +23,7 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ProductHandlers
         {
             var value = await _repository.GetByIdAsync(request.ProductId);
             value.ShortDescription = request.ShortDescription;
+            value.ImageURL = request.ImageURL;
             value.Description = request.Description;
             value.Price = request.Price;    
             value.CategoryId = request.CategoryId;  

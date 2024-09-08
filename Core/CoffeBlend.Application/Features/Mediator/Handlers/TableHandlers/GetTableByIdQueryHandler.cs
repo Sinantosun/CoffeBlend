@@ -28,6 +28,8 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.TableHandlers
                 Name = value.Name,
                 Status = value.Status,
                 TableID=value.TableID,
+                Capacity=value.Capacity,
+
             };
         }
     }

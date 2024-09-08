@@ -1,8 +1,30 @@
-﻿
+﻿@model CreateTableDto
 @{
     ViewData["Title"] = "CreateTable";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>CreateTable</h1>
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Masa ekleme sayfası</h4>
+            <p class="card-description">
+                Masa bilgisini aşağıdaki form üzerinden ekliyebilirsiniz. Lütfen bilgileri eksiksiz olarak doldurun.
+            </p>
+            <form method="post" class="forms-sample">
+                <div class="form-group">
+                    <label for="exampleInputShortTitle">Masa Adı</label>
+                    <input type="text" class="form-control" id="exampleInputShortTitle" asp-for="Name" placeholder="Masa Adı">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputTitlte">Kapasite</label>
+                    <input type="text" class="form-control" id="exampleInputTitlte" asp-for="Capacity" placeholder="Bu masa kaç kişilik?">
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 

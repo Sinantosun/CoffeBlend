@@ -19,6 +19,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Templates\coffee1-gh-pages\.DS_Store" />
+    <None Include="wwwroot\Templates\coffee1-gh-pages\css\.DS_Store" />
+    <None Include="wwwroot\Templates\coffee1-gh-pages\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\Templates\coffee1-gh-pages\css\css\.DS_Store" />
+    <None Include="wwwroot\Templates\coffee1-gh-pages\fonts\.DS_Store" />
+    <None Include="wwwroot\Templates\coffee1-gh-pages\fonts\flaticon\.DS_Store" />
+    <None Include="wwwroot\Templates\coffee1-gh-pages\fonts\icomoon\.DS_Store" />
+    <None Include="wwwroot\Templates\coffee1-gh-pages\fonts\ionicons\fonts\.DS_Store" />
+    <None Include="wwwroot\Templates\coffee1-gh-pages\images\.DS_Store" />
+    <None Include="wwwroot\Templates\coffee1-gh-pages\js\.DS_Store" />
+    <None Include="wwwroot\Templates\coffee1-gh-pages\scss\.DS_Store" />
     <None Include="wwwroot\Templates\skydash\.git\COMMIT_EDITMSG" />
     <None Include="wwwroot\Templates\skydash\.git\config" />
     <None Include="wwwroot\Templates\skydash\.git\description" />

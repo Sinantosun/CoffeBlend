@@ -27,6 +27,7 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ReservationHandlers
                 Date = t.Date,
                 ReservationId = t.ReservationId,
                 Email = t.Email,
+                TableID=t.TableID,
                 NameSurname =t.NameSurname,
                 Phone = t.Phone,
                 SpecialRequest = t.SpecialRequest,

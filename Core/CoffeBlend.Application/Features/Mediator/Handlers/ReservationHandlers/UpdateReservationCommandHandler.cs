@@ -27,6 +27,7 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ReservationHandlers
             value.Date = request.Date;
             value.SpecialRequest = request.SpecialRequest;
             value.NameSurname = request.NameSurname;
+            value.TableID = request.tableID;    
             await _repository.UpdateAsync(value);
         }
     }

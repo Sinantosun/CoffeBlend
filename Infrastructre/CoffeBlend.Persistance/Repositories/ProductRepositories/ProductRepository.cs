@@ -19,6 +19,18 @@ namespace CoffeBlend.Persistance.Repositories.ProductRepositories
             _context = context;
         }
 
+        public async Task<List<Product>> GetLast5CoffeProductListAsync()
+        {
+            var values = await _context.Products.Include(y => y.Category).Where(t => t.Category.Name == "Sıcak İcecekler").OrderByDescending(t => t.ProductId).Take(5).ToListAsync();
+            return values;
+        }
+
+        public async Task<List<Product>> GetLast5ProductListAsync()
+        {
+            var values = await _context.Products.Include(y => y.Category).Where(t => t.Category.Name != "Sıcak İcecekler" && t.Category.Name!="Soğuk İcecekler").OrderByDescending(t => t.ProductId).Take(5).ToListAsync();
+            return values;
+        }
+
         public async Task<List<Product>> GetProductListWithCategoryAsync()
         {
             var value = await _context.Products.Include(t=>t.Category).ToListAsync();

@@ -3,11 +3,13 @@ using CoffeBlend.Application.Interfaces.GenericRepository;
 using CoffeBlend.Application.Interfaces.MailRepositories;
 using CoffeBlend.Application.Interfaces.ProductInterfaces;
 using CoffeBlend.Application.Interfaces.ReservationRepositories;
+using CoffeBlend.Application.Interfaces.TableRepositories;
 using CoffeBlend.Persistance.Context;
 using CoffeBlend.Persistance.Repositories.GenericRepository;
 using CoffeBlend.Persistance.Repositories.MailRepositories;
 using CoffeBlend.Persistance.Repositories.ProductRepositories;
 using CoffeBlend.Persistance.Repositories.ReservationRepositories;
+using CoffeBlend.Persistance.Repositories.TableRepositories;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -19,6 +21,7 @@ builder.Services.AddMediatR(opts =>
 });
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+builder.Services.AddScoped<ITableRepository, TableRepository>();
 builder.Services.AddScoped<IMailRepository, MailRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddDbContext<CoffeBlendContext>(opts =>

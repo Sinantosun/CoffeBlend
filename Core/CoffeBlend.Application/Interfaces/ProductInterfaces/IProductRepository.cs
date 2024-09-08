@@ -10,5 +10,7 @@ namespace CoffeBlend.Application.Interfaces.ProductInterfaces
     public interface IProductRepository
     {
         Task<List<Product>> GetProductListWithCategoryAsync();
+        Task<List<Product>> GetLast5CoffeProductListAsync();
+        Task<List<Product>> GetLast5ProductListAsync();
     }
 }

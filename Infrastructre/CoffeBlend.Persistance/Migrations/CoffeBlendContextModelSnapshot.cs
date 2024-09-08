@@ -47,25 +47,6 @@ namespace CoffeBlend.Persistance.Migrations
                     b.ToTable("Abouts");
                 });
 
-            modelBuilder.Entity("CoffeBlend.Domain.Entites.Cash", b =>
-                {
-                    b.Property<int>("CashId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CashId"));
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("numeric");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.HasKey("CashId");
-
-                    b.ToTable("Cashes");
-                });
-
             modelBuilder.Entity("CoffeBlend.Domain.Entites.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -191,6 +172,23 @@ namespace CoffeBlend.Persistance.Migrations
                     b.ToTable("Menus");
                 });
 
+            modelBuilder.Entity("CoffeBlend.Domain.Entites.Pricing", b =>
+                {
+                    b.Property<int>("PricingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PricingId"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("PricingId");
+
+                    b.ToTable("Pricings");
+                });
+
             modelBuilder.Entity("CoffeBlend.Domain.Entites.Product", b =>
                 {
                     b.Property<int>("ProductId")
@@ -203,6 +201,10 @@ namespace CoffeBlend.Persistance.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImageURL")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -222,6 +224,32 @@ namespace CoffeBlend.Persistance.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("CoffeBlend.Domain.Entites.ProductPricing", b =>
+                {
+                    b.Property<int>("ProductPricingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ProductPricingId"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("PricingId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ProductPricingId");
+
+                    b.HasIndex("PricingId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductPricings");
                 });
 
             modelBuilder.Entity("CoffeBlend.Domain.Entites.Reservation", b =>
@@ -254,7 +282,12 @@ namespace CoffeBlend.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("TableID")
+                        .HasColumnType("integer");
+
                     b.HasKey("ReservationId");
+
+                    b.HasIndex("TableID");
 
                     b.ToTable("Reservations");
                 });
@@ -316,6 +349,9 @@ namespace CoffeBlend.Persistance.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TableID"));
 
+                    b.Property<int>("Capacity")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -354,7 +390,7 @@ namespace CoffeBlend.Persistance.Migrations
 
                     b.HasIndex("TableID");
 
-                    b.ToTable("TableDetails");
+                    b.ToTable("TableDetail");
                 });
 
             modelBuilder.Entity("CoffeBlend.Domain.Entites.Testimonial", b =>
@@ -393,6 +429,36 @@ namespace CoffeBlend.Persistance.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("CoffeBlend.Domain.Entites.ProductPricing", b =>
+                {
+                    b.HasOne("CoffeBlend.Domain.Entites.Pricing", "Pricing")
+                        .WithMany("ProductPricings")
+                        .HasForeignKey("PricingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CoffeBlend.Domain.Entites.Product", "Product")
+                        .WithMany("ProductPricings")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pricing");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("CoffeBlend.Domain.Entites.Reservation", b =>
+                {
+                    b.HasOne("CoffeBlend.Domain.Entites.Table", "Reservations")
+                        .WithMany("Reservations")
+                        .HasForeignKey("TableID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Reservations");
+                });
+
             modelBuilder.Entity("CoffeBlend.Domain.Entites.TableDetail", b =>
                 {
                     b.HasOne("CoffeBlend.Domain.Entites.Product", "product")
@@ -402,7 +468,7 @@ namespace CoffeBlend.Persistance.Migrations
                         .IsRequired();
 
                     b.HasOne("CoffeBlend.Domain.Entites.Table", "Table")
-                        .WithMany("TableDetails")
+                        .WithMany()
                         .HasForeignKey("TableID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -417,14 +483,21 @@ namespace CoffeBlend.Persistance.Migrations
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("CoffeBlend.Domain.Entites.Pricing", b =>
+                {
+                    b.Navigation("ProductPricings");
+                });
+
             modelBuilder.Entity("CoffeBlend.Domain.Entites.Product", b =>
                 {
+                    b.Navigation("ProductPricings");
+
                     b.Navigation("TableDetails");
                 });
 
             modelBuilder.Entity("CoffeBlend.Domain.Entites.Table", b =>
                 {
-                    b.Navigation("TableDetails");
+                    b.Navigation("Reservations");
                 });
 #pragma warning restore 612, 618
         }

@@ -24,6 +24,7 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ReservationHandlers
             var values = await _reservationRepository.GetCanceledReservationAsync();
             return values.Select(t => new GetCanceledReservationQueryResult
             {
+                TableID = t.TableID,
                 Date = t.Date,
                 ReservationId = t.ReservationId,
                 Email = t.Email,

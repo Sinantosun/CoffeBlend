@@ -5,6 +5,8 @@ using System.Text;
 
 namespace CoffeBlend.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Route("[area]/[controller]/[action]/{id?}")]
     public class TableController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -88,5 +90,20 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> TableList()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7245/api/Tables");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsondata = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultTableDto>>(jsondata);
+                return View(values);
+            }
+            return View();
+        
+        }
+
     }
 }

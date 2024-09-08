@@ -20,5 +20,10 @@ namespace CoffeBlend.Domain.Entites
         public string Phone { get; set; }
         public string? SpecialRequest { get; set; }
         public string Status { get; set; }
+
+        public int TableID { get; set; }
+        public Table Reservations { get; set; }
+
+
     }
 }

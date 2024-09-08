@@ -11,7 +11,11 @@ namespace CoffeBlend.Domain.Entites
         public int TableID { get; set; }
         public string Name { get; set; }
         public bool Status { get; set; }
+        public int Capacity { get; set; }
 
-        public List<TableDetail> TableDetails { get; set; }
+        public List<Reservation> Reservations  { get; set; }
+
+
+
     }
 }

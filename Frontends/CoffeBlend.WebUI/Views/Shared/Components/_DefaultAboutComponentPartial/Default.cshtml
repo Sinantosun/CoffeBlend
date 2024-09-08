@@ -1,0 +1,21 @@
+﻿@model List<ResultAboutDto>
+@foreach (var item in Model)
+{
+    <section class="ftco-about d-md-flex">
+        <div class="one-half img" style="background-image: url(/Templates/coffee1-gh-pages/images/about.jpg);"></div>
+        <div class="one-half ftco-animate">
+            <div class="overlap">
+                <div class="heading-section ftco-animate ">
+                    <span class="subheading">@item.ShortTitle</span>
+                    <h2 class="mb-4">@item.Title</h2>
+                </div>
+                <div>
+                    <p>
+                        @item.Description
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+}

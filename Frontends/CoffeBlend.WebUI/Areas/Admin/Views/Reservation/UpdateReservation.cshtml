@@ -31,8 +31,16 @@
                     <input type="text" class="form-control" id="exampleInputPhone" asp-for="Phone" placeholder="Telefon Numarası">
                 </div>
                 <div class="form-group">
+                    <label for="exampleInputPhone">Masa Seçiniz</label>
+                    <select asp-for="TableID" asp-items="@ViewBag.ActiveTableList" class="form-control"></select>
+                </div>
+                <div class="form-group">
                     <label for="exampleInputRezervationStatus">Rezervasyon Durumu</label>
-                    <input type="text" class="form-control" id="exampleInputRezervationStatus" asp-for="Status" placeholder="Rezervasyon durumu">
+                    <select asp-for="Status" class="form-control">
+                        <option value="Rezervasyon Alındı, Onay Bekliyor">Rezervasyon Alındı, Onay Bekliyor</option>
+                        <option value="İptal Edildi">İptal Edildi</option>
+                        <option value="Onaylandı">Onaylandı</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputSpacialRequest">Özel İstekler</label>

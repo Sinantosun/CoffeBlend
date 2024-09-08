@@ -1,5 +1,6 @@
 ﻿using CoffeBlend.Application.Features.Mediator.Commands.ProductCommands;
 using CoffeBlend.Application.Features.Mediator.Queries.ProductQueries;
+using CoffeBlend.Application.Features.Mediator.Results.ProductResults;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,19 @@ namespace CoffeBlend.WebAPI.Controllers
             return Ok(values);
         }
 
+        [HttpGet("GetLast5CoffeProduct")]
+        public async Task<IActionResult> GetLast5CoffeProduct()
+        {
+            var values = await _mediator.Send(new GetLast5CoffeProductQuery());
+            return Ok(values);
+        }
 
+        [HttpGet("GetLast5Product")]
+        public async Task<IActionResult> GetLast5Product()
+        {
+            var values = await _mediator.Send(new GetLast5ProductQuery());
+            return Ok(values);
+        }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductByIdAsync(int id)

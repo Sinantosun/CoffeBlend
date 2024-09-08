@@ -25,6 +25,7 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ReservationHandlers
             var value = await _repository.GetByIdAsync(request.Id);
             return new GetReservationByIdQueryResult
             {
+                TableID = value.TableID,
                 Date = value.Date,
                 Email = value.Email,
                 NameSurname = value.NameSurname,

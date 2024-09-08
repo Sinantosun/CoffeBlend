@@ -41,7 +41,7 @@ namespace CoffeBlend.WebAPI.Controllers
             await _mediator.Send(command);
             await _mailService.SendMailAsync(new SendMailDto
             {
-                Content = "Merhaba " + command.NameSurname.ToUpper() + ",<br/><br/>" + command.Date + " Tarihi için CoffeBlend Rezervasyonunuz alındı en kısa süre içinde rezervasyonunuz için size dönüş sağlanacaktır<br/><br/> teşekkürler!",
+                Content = "Merhaba <span style=text-transfrom:capitalize>" + command.NameSurname + "</span>,<br/><br/>" + command.Date + " Tarihi için CoffeBlend Rezervasyonunuz alındı en kısa süre içinde rezervasyonunuz için size dönüş sağlanacaktır<br/><br/> teşekkürler!",
                 Subject = "CoffeBlend Rezervasyon",
                 NameSurname = command.NameSurname,
                 Email = command.Email,

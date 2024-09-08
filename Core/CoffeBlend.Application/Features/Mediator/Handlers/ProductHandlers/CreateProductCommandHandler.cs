@@ -23,6 +23,7 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ProductHandlers
         {
             await _repository.CreateAsync(new Product
             {
+                ImageURL = request.ImageURL,
                 CategoryId = request.CategoryId,
                 Description = request.Description,
                 Price = request.Price,

@@ -1,5 +1,7 @@
 ﻿using CoffeBlend.DtoLayer.ReservationDtos;
+using CoffeBlend.DtoLayer.TableDtos;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -15,7 +17,28 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        
+
+        async Task LoadTableList()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7245/api/Tables/GetActiveTables");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsondata = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultActiveTablesDto>>(jsondata);
+                List<SelectListItem> TableValues = (from x in values
+                                                    select new SelectListItem
+                                                    {
+                                                        Text = x.Name,
+                                                        Value = x.TableID.ToString(),
+                                                    }).ToList();
+                ViewBag.ActiveTableList = TableValues;
+         
+
+
+            }
+        }
+
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
@@ -77,15 +100,17 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult CreateReservation()
+        public async Task<IActionResult> CreateReservation()
         {
+            await LoadTableList();
             return View();
+
         }
         [HttpPost]
         public async Task<IActionResult> CreateReservation(CreateReservationDto createReservationDto)
         {
             createReservationDto.Status = "Rezervasyon Alındı,Onay Bekliyor";
-            
+
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createReservationDto);
             StringContent strcontent = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -108,6 +133,7 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
             {
                 var jsondata = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<ResultReservatioByIdDto>(jsondata);
+                await LoadTableList();
                 return View(values);
             }
             return View();

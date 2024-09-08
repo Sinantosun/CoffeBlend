@@ -10,6 +10,7 @@ namespace CoffeBlend.Domain.Entites
     {
         public int ProductId { get; set; }
         public string Title { get; set; }
+        public string ImageURL { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
@@ -18,6 +19,7 @@ namespace CoffeBlend.Domain.Entites
         public Category Category { get; set; }
 
         public List<TableDetail> TableDetails { get; set; }
+        public List<ProductPricing> ProductPricings { get; set; }
 
     }
 }

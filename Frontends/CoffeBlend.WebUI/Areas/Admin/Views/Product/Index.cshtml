@@ -19,11 +19,12 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Başlık</th>
+                            <th>Görsel</th>
+                            <th>Ürün Adı</th>
                             <th>Kategori</th>
                             <th>Fiyat</th>
 
-                            <th class="text-center" colspan="2">işlemler</th>
+                            <th class="text-center" colspan="3">işlemler</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,11 +33,13 @@
                             count++;
                             <tr>
                                 <th>@count</th>
+                                <td><img src="@item.ImageURL"  style="width:100px; height:100px" /></td>
                                 <td>@item.Title</td>
                                 <td>@item.CategoryName</td>
                                 <td>@item.Price.ToString("C2")</td>
-                                <td><button onclick="DeleteProduct(@item.ProductId)" class="btn btn-outline-danger btn-sm btn-icon-text"><i class="ti-trash btn-icon-prepend"></i>Sil</button></td>
-                                <td><a href="/Admin/Product/UpdateProduct/@item.ProductId" class="btn btn-outline-success btn-sm  btn-icon-text"><i class="ti-pencil-alt btn-icon-prepend"> Güncelle </i></a></td>
+                                <td><button onclick="DeleteProduct(@item.ProductId)" class="btn btn-danger tn-icon-text"><i class="ti-trash btn-icon-prepend"></i> Sil</button></td>
+                                <td><a href="/Admin/Product/UpdateProduct/@item.ProductId" class="btn btn-success btn-icon-text"><i class="ti-pencil-alt btn-icon-prepend"> Güncelle </i></a></td>
+                                <td><a href="/Admin/Product/ProductPrice/@item.ProductId" class="btn btn-primary  btn-icon-text"><i class="ti-plus btn-icon-prepend"> Fiyat Bilgisi Ekle  </i></a></td>
                             </tr>
                         }
 

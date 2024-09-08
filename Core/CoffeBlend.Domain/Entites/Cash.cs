@@ -9,10 +9,9 @@ namespace CoffeBlend.Domain.Entites
 {
     public class Cash
     {
-        public int CashId { get; set; }
+        public int CashID { get; set; }
         [Column(TypeName = "timestamp without time zone")]
         public DateTime Date { get; set; }
-        public decimal Amount { get; set; }
-
+        public decimal Balance { get; set; }
     }
 }

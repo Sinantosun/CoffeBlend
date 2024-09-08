@@ -25,6 +25,7 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ProductHandlers
             var values = await _repository.GetListAsync();
             return values.Select(t => new GetProductQueryResult
             {
+                ImageURL = t.ImageURL,  
                 CategoryId = t.CategoryId,
                 ProductId = t.ProductId,
                 Description = t.Description,

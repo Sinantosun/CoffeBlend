@@ -123,7 +123,29 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> ProductPriceList(int id)
+        {
 
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7245/api/ProductPricing/GetProductPricingByProductId/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsondata = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<GetProductPricingByProductIdDto>>(jsondata);
+                await LoadCategoryList();
+                return View(values);
+            }
+
+            return View();
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> ProductPriceList()
+        {
+
+            return View();
+        }
 
         [HttpGet]
         public async Task<IActionResult> UpdateProduct(int id)

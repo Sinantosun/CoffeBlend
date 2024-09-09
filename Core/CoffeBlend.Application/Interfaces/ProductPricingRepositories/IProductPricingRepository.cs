@@ -9,6 +9,6 @@ namespace CoffeBlend.Application.Interfaces.ProductPricingRepositories
 {
     public interface IProductPricingRepository
     {
-        Task<ProductPricing> GetProductPricingByProductIdAsync(int ProductId);
+        Task<List<ProductPricing>> GetProductPricingByProductIdAsync(int ProductId);
     }
 }

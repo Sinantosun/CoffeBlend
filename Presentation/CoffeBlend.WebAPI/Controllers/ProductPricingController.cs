@@ -30,6 +30,12 @@ namespace CoffeBlend.WebAPI.Controllers
             var value = await _mediator.Send(new GetProductPricingByIdQuery(id));
             return Ok(value);
         }
+        [HttpGet("GetProductPricingByProductId/{id}")]
+        public async Task<IActionResult> GetProductPricingByProductId(int id)
+        {
+            var value = await _mediator.Send(new GetProductPricingByProductIdQuery(id));
+            return Ok(value);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateProductPricingAsync(CreateProductPricingCommand command)
         {

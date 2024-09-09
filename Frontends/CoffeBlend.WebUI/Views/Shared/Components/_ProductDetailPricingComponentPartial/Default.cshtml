@@ -1,0 +1,18 @@
+﻿@using CoffeBlend.DtoLayer.ProductPricingDtos
+@model List<GetProductPricingByProductIdDto>
+<div class="col-md-12 mb-5 pb-3">
+    @foreach (var item in Model)
+    {
+        <div class="pricing-entry d-flex ftco-animate">
+            <div class="desc pl-3">
+                <div class="d-flex text align-items-center">
+                    <h3><span>@item.PricingTitle</span></h3>
+                    <span class="price">@item.Amount.ToString("0.00") ₺</span>
+                </div>
+                
+            </div>
+        </div>
+
+    }
+
+</div>

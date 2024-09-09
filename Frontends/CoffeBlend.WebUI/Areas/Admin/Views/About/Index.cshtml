@@ -20,7 +20,7 @@
                             <th>Kısa Başlık</th>
                             <th>Başlık</th>
                             <th>Açıklama</th>
-                            <th colspan="2">işlemler</th>
+                            <th class="text-center" colspan="2">işlemler</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,8 +30,9 @@
                                 <td>@item.ShortTitle</td>
                                 <td>@item.Title</td>
                                 <td>@item.Description</td>
-                                <td><button onclick="DeleteAbout(@item.AboutId)" class="btn btn-outline-danger btn-sm btn-icon-text"><i class="ti-trash btn-icon-prepend"></i>Sil</button></td>
-                                <td><a href="/Admin/About/UpdateAbout/@item.AboutId" class="btn btn-outline-success btn-sm  btn-icon-text"><i class="ti-pencil-alt btn-icon-prepend"> Güncelle </i></a></td>
+                                <td style="width:40px"><button onclick="DeleteAbout(@item.AboutId)" class="btn btn-danger btn-icon-text d-flex align-items-center"><i class="ti-trash btn-icon-prepend"></i>Sil</button></td>
+                                <td style="width:40px"><a href="/Admin/About/UpdateAbout/@item.AboutId" class="btn btn-success btn-icon-text d-flex align-items-center"><i class="ti-pencil-alt btn-icon-prepend"></i>Güncelle</a> </td>
+
                             </tr>
                         }
 

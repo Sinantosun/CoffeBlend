@@ -18,7 +18,7 @@
                             <th>İkon</th>
                             <th>Başlık</th>
                             <th>Açıklama</th>
-                            <th colspan="2">işlemler</th>
+                            <th class="text-center" colspan="2">işlemler</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,8 +28,8 @@
                                 <td>@item.Icon</td>
                                 <td>@item.Title</td>
                                 <td>@item.Description</td>
-                                <td><button onclick="DeleteContactInfo(@item.ContactInfoId)" class="btn btn-outline-danger btn-sm btn-icon-text"><i class="ti-trash btn-icon-prepend"></i>Sil</button></td>
-                                <td><a href="/Admin/ContactInfo/UpdateContactInfo/@item.ContactInfoId" class="btn btn-outline-success btn-sm  btn-icon-text"><i class="ti-pencil-alt btn-icon-prepend"> Güncelle </i></a></td>
+                                <td style="width:40px"><button onclick="DeleteContactInfo(@item.ContactInfoId)" class="btn btn-outline-danger d-flex align-items-center btn-icon-text"><i class="ti-trash btn-icon-prepend"></i> Sil</button></td>
+                                <td style="width:40px"><a href="/Admin/ContactInfo/UpdateContactInfo/@item.ContactInfoId" class="btn btn-outline-success d-flex align-items-center btn-icon-text"><i class="ti-pencil-alt btn-icon-prepend">  </i>Güncelle</a></td>
                             </tr>
                         }
 

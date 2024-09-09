@@ -1,0 +1,10 @@
+﻿@model ResultProductByIdDto
+<div class="col-lg-6 mb-5 ftco-animate">
+    <a href="@Model.ImageURL" class="image-popup"><img src="@Model.ImageURL" class="img-fluid" alt="Colorlib Template"></a>
+</div>
+<div class="col-lg-6 product-details pl-md-5 ftco-animate">
+    <h3>@Model.Title</h3>
+    <p class="price"><span>@Model.Price.ToString("0.00") ₺</span></p>
+    <p>@Model.Description</p>
+ 
+</div>

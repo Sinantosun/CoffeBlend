@@ -22,7 +22,12 @@ namespace CoffeBlend.WebAPI.Controllers
             var values = await _mediator.Send(new GetCategoryQuery());
             return Ok(values);
         }
-
+        [HttpGet("GetRandom3Categories")]
+        public async Task<IActionResult> GetRandom3Categories()
+        {
+            var values = await _mediator.Send(new GetRandom3CategoryQuery());
+            return Ok(values);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCategoriesByIdAsync(int id)
         {

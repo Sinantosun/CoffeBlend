@@ -35,9 +35,9 @@
                                 <th>@count</th>
                                 <td><img src="@item.ImageURL"  style="width:100px; height:100px" /></td>
                                 <td>@item.Title</td>
-                                <td>@item.CategoryName</td>
+                                <td>@item.category.Name</td>
                                 <td>@item.Price.ToString("C2")</td>
-                                <td><a href="/Admin/Product/UpdateProduct/@item.ProductId" class="btn btn-danger btn-icon-text d-flex align-items-center"><i class="ti-trash btn-icon-prepend"></i> Sil </a> </td>
+                                <td><a onclick="DeleteProduct(@item.ProductId)" class="btn btn-danger btn-icon-text d-flex align-items-center"><i class="ti-trash btn-icon-prepend"></i> Sil </a> </td>
                                 <td><a href="/Admin/Product/UpdateProduct/@item.ProductId" class="btn btn-success btn-icon-text d-flex align-items-center"><i class="ti-pencil-alt btn-icon-prepend"></i>Güncelle</a> </td>
                                 <td><a href="/Admin/Product/ProductPrice/@item.ProductId"  class="btn  btn-primary  btn-icon-text d-flex align-items-center"><i class="ti-plus btn-icon-prepend">  </i>Fiyat Bilgisi Ekle </a></td>
                                 <td><a href="/Admin/Product/ProductPriceList/@item.ProductId" class="btn  btn-warning  btn-icon-text d-flex align-items-center"><i class="ti-view-list-alt btn-icon-prepend"> </i>Fiyat Bilgileri </a></td>

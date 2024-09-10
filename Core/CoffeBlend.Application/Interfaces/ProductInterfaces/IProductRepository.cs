@@ -1,4 +1,5 @@
-﻿using CoffeBlend.Domain.Entites;
+﻿using CoffeBlend.Application.Features.Mediator.Results.ProductResults;
+using CoffeBlend.Domain.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;

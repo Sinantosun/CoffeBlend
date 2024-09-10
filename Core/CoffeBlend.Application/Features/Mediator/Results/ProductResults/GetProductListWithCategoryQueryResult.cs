@@ -17,7 +17,6 @@ namespace CoffeBlend.Application.Features.Mediator.Results.ProductResults
         public decimal Price { get; set; }
         public string ImageURL { get; set; }
 
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
+        public GetCategoryQueryResult Category { get; set; }
     }
 }

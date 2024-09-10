@@ -24,20 +24,28 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ProductHandlers
 
         public async Task<List<GetProductListWithCategoryQueryResult>> Handle(GetProductListWithCategoryQuery request, CancellationToken cancellationToken)
         {
+            List<GetProductListWithCategoryQueryResult> productList = new List<GetProductListWithCategoryQueryResult>();
             var value = await _productRepository.GetProductListWithCategoryAsync();
-            return value.Select(t => new GetProductListWithCategoryQueryResult
+            foreach (var item in value)
             {
-                ImageURL=t.ImageURL,
+                GetCategoryQueryResult category = new GetCategoryQueryResult();
+                category.Name = item.Category.Name;
+                category.CategoryId = item.CategoryId;
+                productList.Add(new GetProductListWithCategoryQueryResult
+                {
+                    ImageURL = item.ImageURL,
 
-                CategoryId = t.CategoryId,
-                CategoryName = t.Category.Name,
-                Description=t.Description,
-                Price = t.Price,
-                ProductId = t.ProductId,
-                ShortDescription = t.ShortDescription,
-                Title = t.Title 
-            }).ToList();
-           
+                    Category = category,
+                    Description = item.Description,
+                    Price = item.Price,
+                    ProductId = item.ProductId,
+                    ShortDescription = item.ShortDescription,
+                    Title = item.Title
+
+                });
+            }
+            return productList;
+
 
         }
     }

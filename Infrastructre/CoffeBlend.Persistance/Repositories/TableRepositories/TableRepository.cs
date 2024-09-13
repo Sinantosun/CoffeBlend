@@ -1,4 +1,5 @@
-﻿using CoffeBlend.Application.Interfaces.TableRepositories;
+﻿using CoffeBlend.Application.Enums;
+using CoffeBlend.Application.Interfaces.TableRepositories;
 using CoffeBlend.Domain.Entites;
 using CoffeBlend.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,13 @@ namespace CoffeBlend.Persistance.Repositories.TableRepositories
 
         public async Task<List<Table>> GetActiveTableList()
         {
-            var values = await _context.Tables.Where(t => t.Status == true).ToListAsync();
+            var values = await _context.Tables.Where(t => t.Status ==(byte)TableStatusTypes.Active).ToListAsync();
+            return values;
+        }
+
+        public async Task<List<Table>> GetDeactiveTableList()
+        {
+            var values = await _context.Tables.Where(t => t.Status == (byte)TableStatusTypes.Deactive).ToListAsync();
             return values;
         }
     }

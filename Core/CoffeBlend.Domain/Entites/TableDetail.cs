@@ -16,7 +16,7 @@ namespace CoffeBlend.Domain.Entites
         public Product product { get; set; }
 
         public int Quantity { get; set; }
-        public decimal UnitPrice { get; set; }
+        public decimal UnitPrice { get => product.Price; }
         public decimal TotalPrice { get => Quantity * UnitPrice; }
     }
 }

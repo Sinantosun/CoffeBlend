@@ -1,4 +1,5 @@
-﻿using CoffeBlend.Application.Features.Mediator.Commands.TableCommands;
+﻿using CoffeBlend.Application.Enums;
+using CoffeBlend.Application.Features.Mediator.Commands.TableCommands;
 using CoffeBlend.Application.Interfaces.GenericRepository;
 using CoffeBlend.Domain.Entites;
 using MediatR;
@@ -24,7 +25,7 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.TableHandlers
             await _repository.CreateAsync(new Table
             {
                 Name = request.Name,
-                Status = true,
+                Status =(byte)TableStatusTypes.Active,
                 Capacity = request.Capacity,
             });
 

@@ -1,4 +1,5 @@
-﻿using CoffeBlend.Application.Features.Mediator.Commands.ReservationCommands;
+﻿using CoffeBlend.Application.Enums;
+using CoffeBlend.Application.Features.Mediator.Commands.ReservationCommands;
 using CoffeBlend.Application.Interfaces.ReservationRepositories;
 using CoffeBlend.Domain.Entites;
 using CoffeBlend.Persistance.Context;
@@ -27,7 +28,7 @@ namespace CoffeBlend.Persistance.Repositories.ReservationRepositories
             var value = await _context.Reservations.FirstOrDefaultAsync(t => t.ReservationId == reservationId);
             value.Status = "Onaylandı";
             var tableValue = await _context.Tables.FirstOrDefaultAsync(t => t.TableID == value.TableID);
-            tableValue.Status = false;
+            tableValue.Status = (byte)TableStatusTypes.Deactive;
             await _context.SaveChangesAsync();
         }
 
@@ -36,7 +37,7 @@ namespace CoffeBlend.Persistance.Repositories.ReservationRepositories
             var value = await _context.Reservations.FirstOrDefaultAsync(t => t.ReservationId == reservationId);
             value.Status = "İptal Edildi";
             var tableValue = await _context.Tables.FirstOrDefaultAsync(t => t.TableID == value.TableID);
-            tableValue.Status = true;
+            tableValue.Status = (byte)TableStatusTypes.Active;
             await _context.SaveChangesAsync();
         }
 
@@ -54,7 +55,7 @@ namespace CoffeBlend.Persistance.Repositories.ReservationRepositories
 
             });
             var tableValue = await _context.Tables.FirstOrDefaultAsync(t => t.TableID == command.tableID);
-            tableValue.Status = false;
+            tableValue.Status = (byte)TableStatusTypes.Reseravtion;
             await _context.SaveChangesAsync();  
         }
 

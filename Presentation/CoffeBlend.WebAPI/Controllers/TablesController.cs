@@ -36,6 +36,12 @@ namespace CoffeBlend.WebAPI.Controllers
             var value = await _mediator.Send(new GetActiveTableQuery());
             return Ok(value);
         }
+        [HttpGet("GetDeactiveTables")]
+        public async Task<IActionResult> GetDeactiveTables()
+        {
+            var value = await _mediator.Send(new GetDeactiveTableQuery());
+            return Ok(value);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateTableAsync(CreateTableCommand command)
         {

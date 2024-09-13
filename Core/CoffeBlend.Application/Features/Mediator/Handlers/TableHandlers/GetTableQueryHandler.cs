@@ -23,8 +23,8 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.TableHandlers
         public async Task<List<GetTableQueryResult>> Handle(GetTableQuery request, CancellationToken cancellationToken)
         {
             var values = await _repository.GetListAsync();
-            var value2 = values.OrderBy(t=>t.Status).ToList();
-            return value2.Select(t => new GetTableQueryResult
+            var values2 = values.OrderBy(t => t.TableID).ToList();
+            return values2.Select(t => new GetTableQueryResult
             {
                 TableID=t.TableID,
                 Name = t.Name,

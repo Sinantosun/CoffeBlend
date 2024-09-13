@@ -60,7 +60,7 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsondata = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<ResultReservatioByIdDto>(jsondata);
+                var values = JsonConvert.DeserializeObject<ResultTestimonialByIdDto>(jsondata);
                 return View(values);
             }
             return View();

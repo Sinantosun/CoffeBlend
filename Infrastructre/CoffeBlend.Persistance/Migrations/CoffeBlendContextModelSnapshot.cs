@@ -356,8 +356,8 @@ namespace CoffeBlend.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("boolean");
+                    b.Property<byte>("Status")
+                        .HasColumnType("smallint");
 
                     b.HasKey("TableID");
 
@@ -380,9 +380,6 @@ namespace CoffeBlend.Persistance.Migrations
 
                     b.Property<int>("TableID")
                         .HasColumnType("integer");
-
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("numeric");
 
                     b.HasKey("TableDetailID");
 

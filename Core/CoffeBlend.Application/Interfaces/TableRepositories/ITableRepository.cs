@@ -10,5 +10,6 @@ namespace CoffeBlend.Application.Interfaces.TableRepositories
     public interface ITableRepository
     {
         Task<List<Table>> GetActiveTableList();
+        Task<List<Table>> GetDeactiveTableList();
     }
 }

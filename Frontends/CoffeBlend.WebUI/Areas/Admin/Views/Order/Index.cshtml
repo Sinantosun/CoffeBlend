@@ -1,0 +1,29 @@
+﻿@model CreateReservationDto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Rezervasyon ekleme sayfası</h4>
+            <p class="card-description">
+                Rezervasyon bilgisini aşağıdaki form üzerinden ekliyebilirsiniz. Lütfen bilgileri eksiksiz olarak doldurun.
+            </p>
+            <form method="post" class="forms-sample">
+
+                <div class="form-group">
+                    <label for="exampleInputPhone">Ürün Seçiniz</label>
+                    <select asp-for="TableID" asp-items="@ViewBag.ProductList" class="form-control"></select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPhone">Adet</label>
+                    <input type="text"  class="form-control"/>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

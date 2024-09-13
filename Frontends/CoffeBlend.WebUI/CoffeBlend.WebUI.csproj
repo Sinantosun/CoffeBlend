@@ -9,16 +9,21 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Cashier\Controllers\" />
-    <Folder Include="Areas\Cashier\Data\" />
-    <Folder Include="Areas\Cashier\Models\" />
-    <Folder Include="Areas\Cashier\Views\" />
     <Folder Include="wwwroot\Templates\skydash\.git\objects\info\" />
     <Folder Include="wwwroot\Templates\skydash\.git\objects\pack\" />
     <Folder Include="wwwroot\Templates\skydash\.git\refs\tags\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Templates\AdminLTE-3.1.0\.github\codeql\codeql-config.yml" />
+    <None Include="wwwroot\Templates\AdminLTE-3.1.0\.github\CONTRIBUTING.md" />
+    <None Include="wwwroot\Templates\AdminLTE-3.1.0\.github\dependabot.yml" />
+    <None Include="wwwroot\Templates\AdminLTE-3.1.0\.github\ISSUE_TEMPLATE\bug-report-for-adminlte-v3.1-x.md" />
+    <None Include="wwwroot\Templates\AdminLTE-3.1.0\.github\ISSUE_TEMPLATE\feature-request-for-adminlte-v4-x.md" />
+    <None Include="wwwroot\Templates\AdminLTE-3.1.0\.github\workflows\ci.yml" />
+    <None Include="wwwroot\Templates\AdminLTE-3.1.0\.github\workflows\codeql.yml" />
+    <None Include="wwwroot\Templates\AdminLTE-3.1.0\.github\workflows\docs.yml" />
+    <None Include="wwwroot\Templates\AdminLTE-3.1.0\.github\workflows\lint.yml" />
     <None Include="wwwroot\Templates\coffee1-gh-pages\.DS_Store" />
     <None Include="wwwroot\Templates\coffee1-gh-pages\css\.DS_Store" />
     <None Include="wwwroot\Templates\coffee1-gh-pages\css\bootstrap\.DS_Store" />
@@ -1930,7 +1935,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>

@@ -10,7 +10,7 @@ namespace CoffeBlend.DtoLayer.TableDtos
     {
 
         public string Name { get; set; }
-        public bool Status { get; set; } = true;
+        public byte Status { get; set; } = 1;
         public int Capacity { get; set; }
     }
 }

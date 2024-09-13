@@ -13,7 +13,7 @@
                 Referans bilgisini aşağıdaki form üzerinden ekliyebilirsiniz. Lütfen bilgileri eksiksiz olarak doldurun.
             </p>
             <form method="post" class="forms-sample">
-                <input asp-for="TestimonialID">
+                <input type="hidden" asp-for="TestimonialID">
                 <div class="form-group">
                     <label for="exampleInputShortName">Ad Soyad</label>
                     <input type="text" class="form-control" id="exampleInputShortName" asp-for="NameSurname" placeholder="Ad Soyad">

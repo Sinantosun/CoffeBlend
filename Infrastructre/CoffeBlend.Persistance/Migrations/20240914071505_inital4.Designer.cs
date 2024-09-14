@@ -3,6 +3,7 @@ using System;
 using CoffeBlend.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CoffeBlend.Persistance.Migrations
 {
     [DbContext(typeof(CoffeBlendContext))]
-    partial class CoffeBlendContextModelSnapshot : ModelSnapshot
+    [Migration("20240914071505_inital4")]
+    partial class inital4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,25 +48,6 @@ namespace CoffeBlend.Persistance.Migrations
                     b.HasKey("AboutId");
 
                     b.ToTable("Abouts");
-                });
-
-            modelBuilder.Entity("CoffeBlend.Domain.Entites.Cash", b =>
-                {
-                    b.Property<int>("CashID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CashID"));
-
-                    b.Property<decimal>("Balance")
-                        .HasColumnType("numeric");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("date");
-
-                    b.HasKey("CashID");
-
-                    b.ToTable("Cashes");
                 });
 
             modelBuilder.Entity("CoffeBlend.Domain.Entites.Category", b =>

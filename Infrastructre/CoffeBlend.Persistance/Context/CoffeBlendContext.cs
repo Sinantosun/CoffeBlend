@@ -28,6 +28,7 @@ namespace CoffeBlend.Persistance.Context
         public DbSet<Table> Tables { get; set; }
         public DbSet<Pricing> Pricings { get; set; }
         public DbSet<ProductPricing> ProductPricings { get; set; }
+        public DbSet<Cash> Cashes { get; set; }
 
     }
 }

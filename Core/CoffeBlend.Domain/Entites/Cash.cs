@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace CoffeBlend.Domain.Entites
     public class Cash
     {
         public int CashID { get; set; }
-        [Column(TypeName = "timestamp without time zone")]
+        [Column(TypeName = "date")]
         public DateTime Date { get; set; }
         public decimal Balance { get; set; }
     }

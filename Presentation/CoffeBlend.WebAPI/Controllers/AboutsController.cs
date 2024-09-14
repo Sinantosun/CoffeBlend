@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CoffeBlend.Application.Features.Mediator.Queries.AboutQueries;
 using CoffeBlend.Application.Features.Mediator.Commands.AboutCommands;
+using CoffeBlend.Persistance.Context;
 
 namespace CoffeBlend.WebAPI.Controllers
 {
@@ -20,11 +21,13 @@ namespace CoffeBlend.WebAPI.Controllers
         public AboutsController(IMediator mediator)
         {
             _mediator = mediator;
+
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAboutListAsync()
         {
+
             var values = await _mediator.Send(new GetAboutQuery());
             return Ok(values);
         }

@@ -13,5 +13,9 @@ namespace CoffeBlend.Application.Interfaces.ProductInterfaces
         Task<List<Product>> GetProductListWithCategoryAsync();
         Task<List<Product>> GetLast5CoffeProductListAsync();
         Task<List<Product>> GetLast5ProductListAsync();
+
+        Task<GetProductPriceByProductIdQueryResult> GetProductPriceByProductIdQuery(int id);
+
+
     }
 }

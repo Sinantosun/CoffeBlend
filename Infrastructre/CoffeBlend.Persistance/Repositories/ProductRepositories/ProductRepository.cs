@@ -1,4 +1,5 @@
-﻿using CoffeBlend.Application.Interfaces.ProductInterfaces;
+﻿using CoffeBlend.Application.Features.Mediator.Results.ProductResults;
+using CoffeBlend.Application.Interfaces.ProductInterfaces;
 using CoffeBlend.Domain.Entites;
 using CoffeBlend.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
@@ -27,14 +28,23 @@ namespace CoffeBlend.Persistance.Repositories.ProductRepositories
 
         public async Task<List<Product>> GetLast5ProductListAsync()
         {
-            var values = await _context.Products.Include(y => y.Category).Where(t => t.Category.Name != "Sıcak İcecekler" && t.Category.Name!="Soğuk İcecekler").OrderByDescending(t => t.ProductId).Take(5).ToListAsync();
+            var values = await _context.Products.Include(y => y.Category).Where(t => t.Category.Name != "Sıcak İcecekler" && t.Category.Name != "Soğuk İcecekler").OrderByDescending(t => t.ProductId).Take(5).ToListAsync();
             return values;
         }
 
         public async Task<List<Product>> GetProductListWithCategoryAsync()
         {
-            var value = await _context.Products.Include(t=>t.Category).ToListAsync();
+            var value = await _context.Products.Include(t => t.Category).ToListAsync();
             return value;
+        }
+
+        public async Task<GetProductPriceByProductIdQueryResult> GetProductPriceByProductIdQuery(int id)
+        {
+            var value = await _context.Products.FindAsync(id);
+            return new GetProductPriceByProductIdQueryResult
+            {
+                Price = value.Price,
+            };
         }
     }
 }

@@ -25,7 +25,12 @@ namespace CoffeBlend.WebAPI.Controllers
             var values = await _mediator.Send(new GetAdminDashboardTodayBalanceQuery());
             return Ok(values);
         }
-
+        [HttpGet("GetAdminDashboardWidgetStatistics")]
+        public async Task<IActionResult> GetAdminDashboardWidgetStatistics()
+        {
+            var values = await _mediator.Send(new GetAdminWidgetStatisticQuery());
+            return Ok(values);
+        }
         [HttpGet("GetDashboardChart")]
         public async Task<IActionResult> GetDashboardChart()
         {

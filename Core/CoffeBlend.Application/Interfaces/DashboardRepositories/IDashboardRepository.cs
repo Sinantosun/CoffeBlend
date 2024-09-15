@@ -11,5 +11,14 @@ namespace CoffeBlend.Application.Interfaces.DashboardRepositories
     {
         public Task<GetAdminDashboardTodayBalanceQueryResult> GetAdminDashboardTodayBalanceAsync();
         public Task<GetDashboardChartQueryResult> GetDashboardChartAsync();
+        public Task<GetAdminWidgetStatisticQueryResult> GetAdminWidgetStatisticAsync();
+
+       
+        // Active Table Count
+        // Menu Count
+        //Category Count
+        //Reservation Count
+
+
     }
 }

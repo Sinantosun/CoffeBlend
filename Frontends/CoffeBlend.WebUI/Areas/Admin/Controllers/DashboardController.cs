@@ -18,10 +18,11 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
         {
             return View();
         }
+        //
 
         public async Task<JsonResult> GetChart()
         {
-            //
+           
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7245/api/Dashboard/GetDashboardChart");
             if (responseMessage.IsSuccessStatusCode)

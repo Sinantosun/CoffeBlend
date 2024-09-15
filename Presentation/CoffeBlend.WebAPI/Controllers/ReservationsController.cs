@@ -28,7 +28,12 @@ namespace CoffeBlend.WebAPI.Controllers
             var values = await _mediator.Send(new GetReservationQuery());
             return Ok(values);
         }
-
+        [HttpGet("GetLast7Reservation")]
+        public async Task<IActionResult> GetLast7Reservation()
+        {
+            var values = await _mediator.Send(new GetLast7ReservationQuery());
+            return Ok(values);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetReservationsByIdAsync(int id)
         {
@@ -39,13 +44,13 @@ namespace CoffeBlend.WebAPI.Controllers
         public async Task<IActionResult> CreateReservationsAsync(CreateReservationCommand command)
         {
             await _mediator.Send(command);
-            await _mailService.SendMailAsync(new SendMailDto
-            {
-                Content = "Merhaba <span style=text-transfrom:capitalize>" + command.NameSurname + "</span>,<br/><br/>" + command.Date + " Tarihi için CoffeBlend Rezervasyonunuz alındı en kısa süre içinde rezervasyonunuz için size dönüş sağlanacaktır<br/><br/> teşekkürler!",
-                Subject = "CoffeBlend Rezervasyon",
-                NameSurname = command.NameSurname,
-                Email = command.Email,
-            });
+            //await _mailService.SendMailAsync(new SendMailDto
+            //{
+            //    Content = "Merhaba <span style=text-transfrom:capitalize>" + command.NameSurname + "</span>,<br/><br/>" + command.Date + " Tarihi için CoffeBlend Rezervasyonunuz alındı en kısa süre içinde rezervasyonunuz için size dönüş sağlanacaktır<br/><br/> teşekkürler!",
+            //    Subject = "CoffeBlend Rezervasyon",
+            //    NameSurname = command.NameSurname,
+            //    Email = command.Email,
+            //});
             return Ok("Kayıt Eklendi");
         }
         [HttpDelete("{id}")]
@@ -82,13 +87,13 @@ namespace CoffeBlend.WebAPI.Controllers
             Random rnd = new Random();
             int Code = rnd.Next(100000, 999999);
             var value = await _mediator.Send(new GetReservationByIdQuery(id));
-            await _mailService.SendMailAsync(new SendMailDto
-            {
-                Content = "Merhaba <span style=text-transform:capitalize>" + value.NameSurname + "</span>,<br/><br/>" + value.Date + " Tarihi için CoffeeBlend'de rezervasyonunuzu başarıyla aldık ve onayladık!  <br/><br/> İşte Rezervasyon Detaylarınız " +"<ul>" +"<li>Tarih :" +value.Date.ToShortDateString() + " </li>" +"<li>Saat :" + value.Date.ToShortTimeString() + " </li>" + "<li>Rezervasyon Kodunuz :" + Code + " </li></ul>" + "Sizi aramızda görmek için sabırsızlanıyoruz! Eğer rezervasyonunuzda herhangi bir değişiklik yapmanız gerekiyorsa veya ek bir talebiniz varsa, lütfen bizimle telefon numaralarımız web sitemiz veya email adreslerimiz üzerinden iletişime geçin.! <br><br> İyi Günler Dileriz!<br> CoffeBlend Ekibi",
-                Subject = "CoffeBlend Rezervasyon Rezervasyon Durumu",
-                NameSurname = value.NameSurname,
-                Email = value.Email,
-            });
+            //await _mailService.SendMailAsync(new SendMailDto
+            //{
+            //    Content = "Merhaba <span style=text-transform:capitalize>" + value.NameSurname + "</span>,<br/><br/>" + value.Date + " Tarihi için CoffeeBlend'de rezervasyonunuzu başarıyla aldık ve onayladık!  <br/><br/> İşte Rezervasyon Detaylarınız " +"<ul>" +"<li>Tarih :" +value.Date.ToShortDateString() + " </li>" +"<li>Saat :" + value.Date.ToShortTimeString() + " </li>" + "<li>Rezervasyon Kodunuz :" + Code + " </li></ul>" + "Sizi aramızda görmek için sabırsızlanıyoruz! Eğer rezervasyonunuzda herhangi bir değişiklik yapmanız gerekiyorsa veya ek bir talebiniz varsa, lütfen bizimle telefon numaralarımız web sitemiz veya email adreslerimiz üzerinden iletişime geçin.! <br><br> İyi Günler Dileriz!<br> CoffeBlend Ekibi",
+            //    Subject = "CoffeBlend Rezervasyon Rezervasyon Durumu",
+            //    NameSurname = value.NameSurname,
+            //    Email = value.Email,
+            //});
 
             await _mediator.Send(new ApproveReseravtionCommand(id));
             return Ok();

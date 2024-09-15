@@ -16,6 +16,7 @@ namespace CoffeBlend.Application.Interfaces.ReservationRepositories
         Task<List<Reservation>> GetApprovedReservationAsync();
         Task<List<Reservation>> GetCanceledReservationAsync();
         Task<List<Reservation>> GetConfirmationReseravtionAsync();
+        Task<List<Reservation>> GetLast7ReservationAsync();
 
         Task CreateReservationAsync(CreateReservationCommand command);
    

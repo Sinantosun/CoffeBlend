@@ -73,7 +73,9 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
                 TempData["Icon"] = "success";
                 return RedirectToAction("Index");
             }
-            return View();
+            TempData["Status"] = "Rezervasyon Onaylama esnasında bir hata oluştu";
+            TempData["Icon"] = "error";
+            return RedirectToAction("Index");
         }
         public async Task<IActionResult> CancelReservation(int id)
         {

@@ -28,7 +28,7 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.TableDetailHandlers
                 ProductId = t.ProductId,
                 Quantity = t.Quantity,
                 TableDetailID = t.TableDetailID,
-                TableID = t.TableDetailID,
+                TableID = t.TableID,
                 UnitPrice = t.UnitPrice
             }).ToList();
         }

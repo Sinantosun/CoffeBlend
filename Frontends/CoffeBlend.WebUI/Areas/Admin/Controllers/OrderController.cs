@@ -72,9 +72,24 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
                 var values = JsonConvert.DeserializeObject<ResultProductPriceByProductIdDto>(jsondata);
                 return Json(values.Price);
         
-
             }
             return Json(null);
+        }
+
+        public async Task<IActionResult> OrderDetail(int id,string TableName)
+        {
+            ViewBag.tableId = id;
+            ViewBag.tableName = TableName;
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7245/api/TableDetail/GetTableOrderListByTableId?id={id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsondata = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultTableOrderListByTableIdDto>>(jsondata);
+                return View(values);
+
+            }
+            return View();
         }
     }
 }

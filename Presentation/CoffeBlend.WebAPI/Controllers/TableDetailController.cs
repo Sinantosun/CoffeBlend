@@ -23,7 +23,12 @@ namespace CoffeBlend.WebAPI.Controllers
             var values = await _mediator.Send(new GetTableDetailQuery());
             return Ok(values);
         }
-
+        [HttpGet("GetTableOrderListByTableId")]
+        public async Task<IActionResult> GetTableOrderListByTableId(int id)
+        {
+            var values = await _mediator.Send(new GetTableOrderListByTableIdQuery(id));
+            return Ok(values);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTableDetailByIdAsync(int id)
         {

@@ -1,0 +1,57 @@
+﻿@using CoffeBlend.DtoLayer.AdminDashboardDtos
+@model ResultAdminWidgetStatisticDto
+<div class="col-md-6 grid-margin transparent">
+    <div class="row">
+        <div class="col-md-6 mb-4 stretch-card transparent">
+            <div class="card card-light-blue">
+                <div class="card-body">
+                    <p class="mb-4">Ürün Sayısı</p>
+                    <p class="fs-30 mb-2">@Model.ProductCount</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4 stretch-card transparent">
+            <div class="card card-light-danger">
+                <div class="card-body">
+                    <p class="mb-4">Kategori Sayısı</p>
+                    <p class="fs-30 mb-2">@Model.CategoryCount</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+            <div class="card card-light-blue">
+                <div class="card-body">
+                    <p class="mb-4">Rezervasyon Sayısı</p>
+                    <p class="fs-30 mb-2">@Model.ActiveReservationCount</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 stretch-card transparent">
+            <div class="card card-light-danger">
+                <div class="card-body">
+                    <p class="mb-4">Boş Masa Sayısı</p>
+                    <p class="fs-30 mb-2">@Model.ActiveTableCount</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-4 stretch-card transparent">
+            <div class="card card-light-blue">
+                <div class="card-body">
+                    <p class="mb-4">Bugünün Sipariş Sayısı</p>
+                    <p class="fs-30 mb-2">@Model.ActiveTableCount</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-4 stretch-card transparent">
+            <div class="card card-light-danger">
+                <div class="card-body">
+                    <p class="mb-4">Bugünün Rezervasyon Sayısı</p>
+                    <p class="fs-30 mb-2">@Model.ActiveTableCount</p>
+                </div>
+            </div>
+        </div>  
+    
+    </div>
+</div>

@@ -22,7 +22,7 @@ namespace CoffeBlend.Domain.Entites
         public string Status { get; set; }
 
         public int TableID { get; set; }
-        public Table Reservations { get; set; }
+        public Table Table { get; set; }
 
 
     }

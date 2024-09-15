@@ -1,0 +1,54 @@
+﻿@model List<GetLast7ReservationDto>
+@{
+    string cardcss = "";
+    int count = 0;
+}
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title mb-0">Top Products</p>
+            <div class="table-responsive">
+                <table class="table table-striped table-borderless">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ad Soyad</th>
+                            <th>Tarih</th>
+                           
+                            <th>Masa</th>
+                            <th>Durum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            @if (item.Status == "Rezervasyon Alındı, Onay Bekliyor")
+                            {
+                                cardcss = "badge-warning";
+                            }
+                            else if (item.Status=="İptal Edildi")
+                            {
+                                cardcss = "badge-danger";
+                            }
+                            else
+                            {
+                                cardcss = "badge-success";
+                            }
+                            count++;
+                            <tr>
+                                <td>@count</td>
+                                <td class="font-weight-bold">@item.NameSurname</td>
+                                <td>@item.Date.ToShortDateString()</td>
+                             
+                                <td>@item.TableName</td>
+                                <td class="font-weight-medium"><div class="badge @cardcss">@item.Status</div></td>
+                            </tr>
+                        }
+                    
+                     
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

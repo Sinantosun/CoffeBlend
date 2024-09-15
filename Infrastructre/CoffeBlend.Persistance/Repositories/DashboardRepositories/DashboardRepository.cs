@@ -30,6 +30,17 @@ namespace CoffeBlend.Persistance.Repositories.DashboardRepositories
 
         }
 
+        public async Task<GetAdminWidgetStatisticQueryResult> GetAdminWidgetStatisticAsync()
+        {
+            return new GetAdminWidgetStatisticQueryResult
+            {
+                ActiveReservationCount = await _context.Reservations.Where(t => t.Status == "1").CountAsync(),
+                ActiveTableCount = await _context.Tables.Where(t => t.Status == 1).CountAsync(),
+                CategoryCount = await _context.Categories.CountAsync(),
+                ProductCount = await _context.Products.CountAsync(),
+            };
+        }
+
         public async Task<GetDashboardChartQueryResult> GetDashboardChartAsync()
         {
             DateTime NowDate = DateTime.Now.Date;

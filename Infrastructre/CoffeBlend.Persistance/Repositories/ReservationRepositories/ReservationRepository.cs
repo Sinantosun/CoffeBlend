@@ -77,8 +77,10 @@ namespace CoffeBlend.Persistance.Repositories.ReservationRepositories
             return value;
         }
 
-
-
-
+        public async Task<List<Reservation>> GetLast7ReservationAsync()
+        {
+            var values = await _context.Reservations.OrderByDescending(t => t.TableID).Take(7).Include(t=>t.Table).ToListAsync();
+            return values;
+        }
     }
 }

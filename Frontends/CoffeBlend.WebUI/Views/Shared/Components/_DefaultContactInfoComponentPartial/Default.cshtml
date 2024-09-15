@@ -7,13 +7,30 @@
                 <div class="info">
                     <div class="row no-gutters">
                         <div class="col-md-4 d-flex ftco-animate">
-                            <div class="icon"><span class="@item.Icon"></span></div>
+                            <div class="icon"><span class="@item.Icon1"></span></div>
                             <div class="text">
-                                <h3>@item.Title</h3>
-                                <p>@item.Description</p>
+                                <h3>@item.Title1</h3>
+                                <p>@item.Description1</p>
                             </div>
                         </div>
-              
+
+
+                        <div class="col-md-4 d-flex ftco-animate">
+                            <div class="icon"><span class="@item.Icon2"></span></div>
+                            <div class="text">
+                                <h3>@item.Title2</h3>
+                                <p>@item.Description2</p>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 d-flex ftco-animate">
+                            <div class="icon"><span class="@item.Icon3"></span></div>
+                            <div class="text">
+                                <h3>@item.Title3</h3>
+                                <p>@item.Description3</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 @await Component.InvokeAsync("_DefaultBookATableComponentPartial")

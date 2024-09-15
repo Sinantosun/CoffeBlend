@@ -26,9 +26,18 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ContactInfoHandlers
             return value.Select(y => new GetContactInfoQueryResult
             {
                 ContactInfoId = y.ContactInfoId,
-                Description = y.Description,
-                Icon = y.Icon,
-                Title = y.Title,
+
+                Description1 = y.Description1,
+                Description2 = y.Description2,
+                Description3 = y.Description3,
+
+                Icon1 = y.Icon1,
+                Icon2 = y.Icon2,
+                Icon3 = y.Icon3,
+
+                Title1 = y.Title1,
+                Title2 = y.Title2,
+                Title3 = y.Title3,
             }).ToList();
         }
     }

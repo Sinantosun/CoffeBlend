@@ -23,9 +23,18 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ContactInfoHandlers
         {
             await _repository.CreateAsync(new ContactInfo
             {
-                Description = request.Description,
-                Icon = request.Icon,
-                Title = request.Title,
+                Description1 = request.Description1,
+                Description2 = request.Description2,
+                Description3 = request.Description3,
+
+                Icon1 = request.Icon1,
+                Icon2 = request.Icon2,
+                Icon3 = request.Icon3,
+
+                Title1 = request.Title1,
+                Title2 = request.Title2,
+                Title3 = request.Title3,
+
             });
         }
     }

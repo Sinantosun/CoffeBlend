@@ -15,9 +15,17 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>İkon</th>
-                            <th>Başlık</th>
-                            <th>Açıklama</th>
+                            <th>İkon1</th>
+                            <th>Başlık1</th>
+                            <th>Açıklama1</th>
+
+                               <th>İkon2</th>
+                            <th>Başlık2</th>
+                            <th>Açıklama2</th>
+
+                            <th>İkon3</th>
+                            <th>Başlık3</th>
+                            <th>Açıklama3</th>
                             <th class="text-center" colspan="2">işlemler</th>
                         </tr>
                     </thead>
@@ -25,9 +33,18 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.Icon</td>
-                                <td>@item.Title</td>
-                                <td>@item.Description</td>
+                                <td>@item.Icon1</td>
+                                <td>@item.Title1</td>
+                                <td>@item.Description1</td>
+
+                                <td>@item.Icon2</td>
+                                <td>@item.Title2</td>
+                                <td>@item.Description2</td>
+
+                                <td>@item.Icon3</td>
+                                <td>@item.Title3</td>
+                                <td>@item.Description3</td>
+
                                 <td style="width:40px"><button onclick="DeleteContactInfo(@item.ContactInfoId)" class="btn btn-outline-danger d-flex align-items-center btn-icon-text"><i class="ti-trash btn-icon-prepend"></i> Sil</button></td>
                                 <td style="width:40px"><a href="/Admin/ContactInfo/UpdateContactInfo/@item.ContactInfoId" class="btn btn-outline-success d-flex align-items-center btn-icon-text"><i class="ti-pencil-alt btn-icon-prepend">  </i>Güncelle</a></td>
                             </tr>

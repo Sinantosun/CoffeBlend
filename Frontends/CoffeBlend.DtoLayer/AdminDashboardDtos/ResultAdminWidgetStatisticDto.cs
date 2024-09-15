@@ -8,9 +8,12 @@ namespace CoffeBlend.DtoLayer.AdminDashboardDtos
 {
     public class ResultAdminWidgetStatisticDto
     {
+        public int BusyTableCount { get; set; }
         public int ActiveTableCount { get; set; }
         public int ProductCount { get; set; }
         public int CategoryCount { get; set; }
         public int ActiveReservationCount { get; set; }
+      
+        public int TodayReservationCount { get; set; }
     }
 }

@@ -34,10 +34,12 @@ namespace CoffeBlend.Persistance.Repositories.DashboardRepositories
         {
             return new GetAdminWidgetStatisticQueryResult
             {
-                ActiveReservationCount = await _context.Reservations.Where(t => t.Status == "1").CountAsync(),
+                ActiveReservationCount = await _context.Reservations.Where(t => t.Status == "Onaylandı").CountAsync(),
                 ActiveTableCount = await _context.Tables.Where(t => t.Status == 1).CountAsync(),
                 CategoryCount = await _context.Categories.CountAsync(),
                 ProductCount = await _context.Products.CountAsync(),
+                TodayReservationCount = await _context.Reservations.Where(t => t.Date.Date == DateTime.Now.Date).CountAsync(),
+                BusyTableCount = await _context.Tables.Where(t => t.Status == 3).CountAsync(),
             };
         }
 
@@ -46,7 +48,7 @@ namespace CoffeBlend.Persistance.Repositories.DashboardRepositories
             DateTime NowDate = DateTime.Now.Date;
             DateTime OldDate = DateTime.Now.Date.AddDays(-1);
 
-            var NowDateAmount = await _context.Cashes.Where(t => t.Date == NowDate).Select(t=>t.Balance).FirstOrDefaultAsync();
+            var NowDateAmount = await _context.Cashes.Where(t => t.Date == NowDate).Select(t => t.Balance).FirstOrDefaultAsync();
             var OldDateAmount = await _context.Cashes.Where(t => t.Date == OldDate).Select(t => t.Balance).FirstOrDefaultAsync();
 
             return new GetDashboardChartQueryResult

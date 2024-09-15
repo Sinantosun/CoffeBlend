@@ -19,6 +19,8 @@ namespace CoffeBlend.Application.Interfaces.ReservationRepositories
         Task<List<Reservation>> GetLast7ReservationAsync();
 
         Task CreateReservationAsync(CreateReservationCommand command);
+
+        Task RemoveAsync(int id);
    
     }
 }

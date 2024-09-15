@@ -1,5 +1,6 @@
 ﻿using CoffeBlend.Application.Features.Mediator.Commands.ReservationCommands;
 using CoffeBlend.Application.Interfaces.GenericRepository;
+using CoffeBlend.Application.Interfaces.ReservationRepositories;
 using CoffeBlend.Domain.Entites;
 using MediatR;
 using System;
@@ -12,16 +13,16 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ReservationHandlers
 {
     public class RemoveReservationCommandHandler : IRequestHandler<RemoveReservationCommand>
     {
-        private readonly IRepository<Reservation> _repository;
-
-        public RemoveReservationCommandHandler(IRepository<Reservation> repository)
+        private readonly IReservationRepository _reservationRepository;
+        public RemoveReservationCommandHandler(IReservationRepository reservationRepository)
         {
-            _repository = repository;
+         
+            _reservationRepository = reservationRepository;
         }
 
         public async Task Handle(RemoveReservationCommand request, CancellationToken cancellationToken)
         {
-            await _repository.RemoveAsync(request.Id);
+            await _reservationRepository.RemoveAsync(request.Id);
         }
     }
 }

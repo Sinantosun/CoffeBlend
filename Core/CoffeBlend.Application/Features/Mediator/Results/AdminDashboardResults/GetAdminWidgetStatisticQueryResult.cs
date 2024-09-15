@@ -12,5 +12,8 @@ namespace CoffeBlend.Application.Features.Mediator.Results.AdminDashboardResults
         public int ProductCount { get; set; }
         public int CategoryCount { get; set; }
         public int ActiveReservationCount { get; set; }
+        public int TodayReservationCount { get; set; }
+        public int BusyTableCount { get; set; }
+
     }
 }

@@ -25,10 +25,19 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ContactInfoHandlers
             var value = await _repository.GetByIdAsync(request.Id);
             return new GetContactInfoByIdQueryResult
             {
-                ContactInfoId= value.ContactInfoId,
-                Description= value.Description,
-                Icon = value.Icon,
-                Title = value.Title 
+                ContactInfoId = value.ContactInfoId,
+
+                Description1 = value.Description1,
+                Description2 = value.Description2,
+                Description3 = value.Description3,
+
+                Icon1 = value.Icon1,
+                Icon2 = value.Icon2,
+                Icon3 = value.Icon3,
+
+                Title1 = value.Title1,
+                Title2 = value.Title2,
+                Title3 = value.Title3,
             };
         }
     }

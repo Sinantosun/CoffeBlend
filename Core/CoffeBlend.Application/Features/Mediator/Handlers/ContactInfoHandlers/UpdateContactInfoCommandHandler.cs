@@ -22,10 +22,19 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.ContactInfoHandlers
         public async Task Handle(UpdateContactInfoCommand request, CancellationToken cancellationToken)
         {
             var value = await _repository.GetByIdAsync(request.ContactInfoId);
-            value.Description = request.Description;    
-            value.Icon = request.Icon;
-            value.Title = request.Title;
-            await _repository.UpdateAsync(value);   
+
+            value.Description1 = request.Description1;
+            value.Description2 = request.Description2;
+            value.Description3 = request.Description3;
+
+            value.Icon1 = request.Icon1;
+            value.Icon2 = request.Icon2;
+            value.Icon3 = request.Icon3;
+
+            value.Title1 = request.Title1;
+            value.Title2 = request.Title2;
+            value.Title3 = request.Title3;
+            await _repository.UpdateAsync(value);
         }
     }
 }

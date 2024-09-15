@@ -82,5 +82,15 @@ namespace CoffeBlend.Persistance.Repositories.ReservationRepositories
             var values = await _context.Reservations.OrderByDescending(t => t.TableID).Take(7).Include(t=>t.Table).ToListAsync();
             return values;
         }
+
+        public async Task RemoveAsync(int id)
+        {
+            var value = await _context.Reservations.FindAsync(id);
+             _context.Reservations.Remove(value);
+
+            var tableValue = await _context.Tables.FirstOrDefaultAsync(t => t.TableID == value.TableID);
+            tableValue.Status = (byte)TableStatusTypes.Active;
+            await _context.SaveChangesAsync();
+        }
     }
 }

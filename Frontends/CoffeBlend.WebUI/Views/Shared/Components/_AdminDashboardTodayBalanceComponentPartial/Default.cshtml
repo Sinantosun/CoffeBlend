@@ -1,4 +1,6 @@
-﻿<div class="col-md-6 grid-margin stretch-card">
+﻿@using CoffeBlend.DtoLayer.AdminDashboardDtos
+@model GetAdminDashboardTodayBalanceDto
+<div class="col-md-6 grid-margin stretch-card">
     <div class="card position-relative">
         <div class="card-body">
             <div id="detailedReports" class="carousel slide detailed-report-carousel position-static pt-2" data-ride="carousel">
@@ -8,9 +10,8 @@
                             <div class="col-md-12 col-xl-12 d-flex flex-column justify-content-start">
                                 <div class="ml-xl-12 mt-3">
                                     <p class="card-title">Bügünkü kazanç </p>
-                                    <h1 class="text-primary">$34040</h1>
+                                    <h1 class="text-primary">@Model.Balance.ToString("C2")</h1>
                                     <h3 class="font-weight-500 mb-xl-4 text-primary">CoffeBlend</h3>
-                                    <p class="mb-2 mb-xl-0">Her gün, bir sonraki başarıya doğru atılan küçük ama önemli adımlardan ibarettir. Bugün elde ettiğimiz kazanç, gelecekteki büyük hedeflerimizin sadece bir başlangıcı. Daha iyiye ulaşmak için hep birlikte çalışmaya ve gelişmeye devam ediyoruz</p>
                                 </div>
                                 <div class="mt-3" id="curve_chart"></div>
                             </div>
@@ -24,3 +25,41 @@
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        $.ajax({
+            url: '/Admin/Dashboard/GetChart',
+            type: 'json',
+            method: 'get',
+            success: function (chart) {
+               
+                console.log(chart);
+
+                var data = google.visualization.arrayToDataTable([
+                    ['Dün', 'Kazanç'],
+                    [chart.oldDate, chart.oldDateAmount],
+                    [chart.nowDate, chart.nowDateAmount],
+
+                ]);
+
+                var options = {
+                    title: 'Düne göre kazanç grafiği',
+                    curveType: 'function',
+                    legend: { position: 'bottom' }
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+                chart.draw(data, options);
+
+            }
+        });
+        
+    }
+</script>

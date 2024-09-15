@@ -4,30 +4,7 @@
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Dün', 'Kazanç'],
-            [ '7 eylül 2024 (dün)',700],
-            [ '8 eylül 2024 (bügün)',900],
-          
-        ]);
-
-        var options = {
-            title: 'Düne göre kazanç grafiği',
-            curveType: 'function',
-            legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-    }
-</script>
 
 <div class="row">
     <div class="col-md-6 grid-margin stretch-card">

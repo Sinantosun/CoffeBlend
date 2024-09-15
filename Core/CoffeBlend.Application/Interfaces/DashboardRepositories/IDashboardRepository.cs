@@ -9,6 +9,7 @@ namespace CoffeBlend.Application.Interfaces.DashboardRepositories
 {
     public interface IDashboardRepository 
     {
-        public Task<GetAdminDashboardTodayBalanceQueryResult> GetAdminDashboardTodayBalance();
+        public Task<GetAdminDashboardTodayBalanceQueryResult> GetAdminDashboardTodayBalanceAsync();
+        public Task<GetDashboardChartQueryResult> GetDashboardChartAsync();
     }
 }

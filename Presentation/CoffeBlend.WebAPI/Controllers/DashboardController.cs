@@ -1,6 +1,7 @@
 ﻿using CoffeBlend.Application.Features.Mediator.Commands.AboutCommands;
 using CoffeBlend.Application.Features.Mediator.Queries.AboutQueries;
 using CoffeBlend.Application.Features.Mediator.Queries.AdminDashboardQueries;
+using CoffeBlend.Application.Features.Mediator.Queries.GetDashboardChartQueries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,10 +19,17 @@ namespace CoffeBlend.WebAPI.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAboutListAsync()
+        [HttpGet("GetAdminDashboardTodayBalance")]
+        public async Task<IActionResult> GetAdminDashboardTodayBalance()
         {
             var values = await _mediator.Send(new GetAdminDashboardTodayBalanceQuery());
+            return Ok(values);
+        }
+
+        [HttpGet("GetDashboardChart")]
+        public async Task<IActionResult> GetDashboardChart()
+        {
+            var values = await _mediator.Send(new GetDashboardChartQuery());
             return Ok(values);
         }
     }

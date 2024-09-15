@@ -21,7 +21,7 @@ namespace CoffeBlend.Application.Features.Mediator.Handlers.AdminDashboardHandle
 
         public Task<GetAdminDashboardTodayBalanceQueryResult> Handle(GetAdminDashboardTodayBalanceQuery request, CancellationToken cancellationToken)
         {
-            return _repository.GetAdminDashboardTodayBalance();
+            return _repository.GetAdminDashboardTodayBalanceAsync();
         }
     }
 }

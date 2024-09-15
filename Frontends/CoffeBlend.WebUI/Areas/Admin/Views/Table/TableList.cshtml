@@ -37,7 +37,7 @@
 
         }
         <div class="col-md-2 mb-xl-3 mb-3 stretch-card grid-margin grid-margin-md-0">
-            <div class="card @cardCss">
+            <div class="card @cardCss"  >
                 <div class="card-body">
                     <p class="card-title text-white">@item.Name</p>
                     <div class="row">
@@ -50,7 +50,8 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <a href="/Admin/Order/Index?tableId=@item.TableID&tableName=@item.Name" class="btn btn-success" style="display:@btnCardCss">Sipariş Al</a>
+                            <a href="/Admin/Order/Index?tableId=@item.TableID&tableName=@item.Name" class="btn btn-success mb-2" style="display:@btnCardCss">Sipariş Al</a>
+                            <a href="/Admin/Order/Index?tableId=@item.TableID&tableName=@item.Name" class="btn btn-warning" style="display:@btnCardCss">Siparişler</a>
                         </div>
                     </div>
                 </div>

@@ -38,19 +38,19 @@ Yapılarını kullandım.
  
 ![admin03](https://github.com/user-attachments/assets/1f7c4d48-a823-4785-9ebb-c06836c91737)
 
-🚀 Ürün listesi burada görüntüleniyor
-🚀 Ürünlere fiyat bilgisi ekleme ve eklenen fiyat bilgilerine buradan görüntülenebiliyor.
-🚀 Fiyat bilgisi her ürün için eklenmeyebilir
-🚀 Fiyat Bilgisini kahve ürünü için örnek alırsak büyük boy orta boy ve kücük boy kahvelerde fiyatların buradan ayrılması sağlanılıyor.
+🚀 Ürün listesi burada görüntüleniyor <br>
+🚀 Ürünlere fiyat bilgisi ekleme ve eklenen fiyat bilgilerine buradan görüntülenebiliyor. <br>
+🚀 Fiyat bilgisi her ürün için eklenmeyebilir <br>
+🚀 Fiyat Bilgisini kahve ürünü için örnek alırsak büyük boy orta boy ve kücük boy kahvelerde fiyatların buradan ayrılması sağlanılıyor. <br>
 🚀 büyük boy kucuk boy veya orta boy alanları ise ödeme planları sekmesinde tutuluyor.
 
  <h3>Rezervasyon Alanı</h3>
  
  ![admin04](https://github.com/user-attachments/assets/9e0eea8c-914f-4759-a9f5-fb3e08397115)
 
- 🚀Burada yapılan rezervasyonların bilgileri gösteriliyor
- 🚀Admin, rezervasyon onaylıyabilir rezervasyon durumunu güncelleyebilir rezeravsyonu silebillir veya rezervasyonu iptal edebilir ayrıca bu alandan yeni rezervasyon ekliyebilir.
- 🚀Onaylanan iptal edilen ve onay bekliyen rezervasyon ilgili butonlar yardımıyla sadece istenilen duruma göre listleme işlemi yapıyor.
+ 🚀Burada yapılan rezervasyonların bilgileri gösteriliyor <br>
+ 🚀Admin, rezervasyon onaylıyabilir rezervasyon durumunu güncelleyebilir rezeravsyonu silebillir veya rezervasyonu iptal edebilir ayrıca bu alandan yeni rezervasyon ekliyebilir. <br>
+ 🚀Onaylanan iptal edilen ve onay bekliyen rezervasyon ilgili butonlar yardımıyla sadece istenilen duruma göre listleme işlemi yapıyor. 
 
  <h1>CoffeBlend Ana Sayfa</h1>
  
@@ -76,7 +76,7 @@ Formatında mail gönderiliyor ve kullanıcıya bildirim sağlanılıyor.
 
 ![default03](https://github.com/user-attachments/assets/12043677-0c85-41de-862e-db6da28cb8c2)
 
-🚀 Ürünlere ait olan detaylar bu sayfadan görüntüleniyor.
+🚀 Ürünlere ait olan detaylar bu sayfadan görüntüleniyor.<br>
 🚀 admin tarafında eklenen fiyat bilgileri burada listeniyor.
 
 

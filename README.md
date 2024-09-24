@@ -28,7 +28,7 @@ Yapılarını kullandım.
 
 <h3>Masa Durumları Alanı</h3>
 
- ![admin02](https://github.com/user-attachments/assets/636720a8-36ed-42fc-afb8-c9f388dccbc1)
+![admin02](https://github.com/user-attachments/assets/91e1e319-4610-430c-94de-47c831e792b5)
 
 🚀 Bu alandan boş masalar dolu masalar ve rezerve edilmiş masalar görüntüleniyor.<br>
 🚀 Dolu masalar için sipariş alma ve verilen siparşlerin listesine erişim sağlanılabiliyor.<br>

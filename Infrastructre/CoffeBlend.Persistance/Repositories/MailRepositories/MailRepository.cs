@@ -13,7 +13,7 @@ namespace CoffeBlend.Persistance.Repositories.MailRepositories
         {
             MimeMessage mimeMessage = new MimeMessage();
 
-            MailboxAddress MailAddressFrom = new MailboxAddress("CoffeBlend", "aspnetcoreprojeler@gmail.com");
+            MailboxAddress MailAddressFrom = new MailboxAddress("name", "mail");
 
             mimeMessage.From.Add(MailAddressFrom);
 
@@ -29,7 +29,7 @@ namespace CoffeBlend.Persistance.Repositories.MailRepositories
 
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.Connect("smtp.gmail.com", 587, false);
-            smtpClient.Authenticate("aspnetcoreprojeler@gmail.com", "mfyw wswz ojqp emra");
+            smtpClient.Authenticate("mail", "mail password");
             await smtpClient.SendAsync(mimeMessage);
             await smtpClient.DisconnectAsync(true);
 

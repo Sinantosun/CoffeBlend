@@ -42,7 +42,7 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Index(int tableId,string tableName)
+        public async Task<IActionResult> Index(int tableId, string tableName)
         {
             ViewBag.tableId = tableId;
             ViewBag.tableName = tableName;
@@ -55,11 +55,11 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(tableDetailDto);
             StringContent str = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            await client.PostAsync("https://localhost:7245/api/TableDetail", str);
+            var value = await client.PostAsync("https://localhost:7245/api/TableDetail", str);
             await LoadDropdown();
             return View();
         }
-       
+
 
         public async Task<JsonResult> GetProductPriceByProductId(int id)
         {
@@ -71,12 +71,12 @@ namespace CoffeBlend.WebUI.Areas.Admin.Controllers
                 var jsondata = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<ResultProductPriceByProductIdDto>(jsondata);
                 return Json(values.Price);
-        
+
             }
             return Json(null);
         }
 
-        public async Task<IActionResult> OrderDetail(int id,string TableName)
+        public async Task<IActionResult> OrderDetail(int id, string TableName)
         {
             ViewBag.tableId = id;
             ViewBag.tableName = TableName;

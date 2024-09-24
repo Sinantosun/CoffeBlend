@@ -22,11 +22,23 @@ namespace CoffeBlend.Persistance.Repositories.DashboardRepositories
         public async Task<GetAdminDashboardTodayBalanceQueryResult> GetAdminDashboardTodayBalanceAsync()
         {
             var value = await _context.Cashes.FirstOrDefaultAsync(t => t.Date == DateTime.Now.Date);
-            return new GetAdminDashboardTodayBalanceQueryResult
+            if (value != null)
             {
+                return new GetAdminDashboardTodayBalanceQueryResult
+                {
 
-                Balance = value.Balance
-            };
+                    Balance = value.Balance
+                };
+            }
+            else
+            {
+                return new GetAdminDashboardTodayBalanceQueryResult
+                {
+
+                    Balance = 0
+                };
+            }
+        
 
         }
 

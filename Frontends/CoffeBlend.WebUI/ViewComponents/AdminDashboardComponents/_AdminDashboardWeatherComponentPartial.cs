@@ -15,7 +15,7 @@ namespace CoffeBlend.WebUI.ViewComponents.AdminDashboardComponents
                 RequestUri = new Uri("https://weatherapi-com.p.rapidapi.com/current.json?q=40.991188,29.016914"),
                 Headers =
     {
-        { "x-rapidapi-key", "26a94699b7mshf92c10fadb7e461p155d6cjsn8e4aae7a4ad2" },
+        { "x-rapidapi-key", "enter-here-your-rapid-api-key" },
         { "x-rapidapi-host", "weatherapi-com.p.rapidapi.com" },
     },
             };
@@ -27,7 +27,6 @@ namespace CoffeBlend.WebUI.ViewComponents.AdminDashboardComponents
                 return View(value);
             
             }
-            return View();
         }
     }
 }

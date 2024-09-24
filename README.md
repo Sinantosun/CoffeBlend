@@ -1,4 +1,4 @@
-![default03](https://github.com/user-attachments/assets/f2a611bf-95a3-4411-8703-04e387740cbe)Herkese Merhaba,
+Herkese Merhaba,
 
 Bu projede Kafe için admin panelli bir web sitesi geliştirdim.
 

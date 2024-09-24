@@ -4,13 +4,13 @@ Bu projede Kafe için admin panelli bir web sitesi geliştirdim.
 
 Projede
 
-🚀 Docker
-🚀 Web API
-🚀 Docker üzerinde çalışan PostgreSQL
-🚀 EntityFramework
-🚀 Onion Architecture
-🚀 Rapid Api
-🚀 Mail Gönderme
+🚀 Docker <br>
+🚀 Web API  <br>
+🚀 Docker üzerinde çalışan PostgreSQL  <br>
+🚀 EntityFramework  <br>
+🚀 Onion Architecture  <br>
+🚀 Rapid Api <br> 
+🚀 Mail Gönderme  <br> 
 🚀 PostgreSQL Trigger
 
 Yapılarını kullandım.
